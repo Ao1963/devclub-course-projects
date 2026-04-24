@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* li:first-child {
+    color: red;
+} */
+
+/* li:last-child {
+    color: blue;
+} */
+
+/* li:first-of-type {
+    color: yellow;
+    background: blue;
+} */
+
+/* span:first-of-type {
+    color: blue;
+    font-size: 24px;
+} */
+
+/* span:last-of-type {
+    color: green;
+    font-size: 24px;
+} */
+
+/* p:first-of-type {
+    color:red;
+    font-size: 24px;
+} */
+
+/* p:last-of-type {
+    color: green;
+} */
+
+/* .container :not(p) {
+    color: orangered;
+} */
+
+/* .container :not(a, p) {
+    color: lime;
+} */
+
+/* .container :not(p, a, .brado, .excluido) {
+    color: blue;
+} */
+
+/* .container :not(.excluido) {
+    color: blue;
+} */
+
+/* .container :nth-child(4) {
+    color: purple;
+} */
+
+.container :nth-last-child(5) {
+    color: blue;
+    font-weight: bold;
+    background-color: yellow;
+    border: 1px solid red;
+    padding: 1px;
+}
+
+
+/* :first-child → primeiro filho / ex: primeira li de uma ul / primeiro span de uma div
+:first-of-type → primeiro elemento de seu tipo, entre os filhos do seu elemento pai
+:last-child → último filho
+:last-of-type → último elemento de seu tipo, entre os filhos do seu elemento pai
+:not() → estiliza os elementos, exceto o que está dentro do ()
+:nth-child() → seleciona o elemento baseado na sua posição. Ex: :nth-child(3)
+:nth-last-child() → seleciona o elemento baseado na sua posição, contando de trás para frente.
+
+:default
+:dir()
+:enabled
+:first
+:fullscreen
+:indeterminate
+:in-range
+:invalid
+:lang()
+:left
+:link
+:nth-last-of-type()
+:nth-of-type()
+:only-child
+:only-of-type
+:optional
+:out-of-range
+:read-write
+:required
+:right
+:root
+:scope
+:target
+:valid --> */

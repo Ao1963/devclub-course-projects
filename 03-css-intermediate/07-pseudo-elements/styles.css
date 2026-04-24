@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #059e35;
+}
+
+a::before {
+    content: "🤡";
+    color: red;
+}
+
+a::after {
+    content: "🤡";
+    color: red; 
+}
+
+
+input {
+    border: 1px solid red;
+    color: blue;
+}
+
+input::placeholder {
+    color: #0000ff;
+}
+
+p {
+    color: blue;
+}
+
+p::first-letter {
+    color: red;
+}
+
+p::first-line {
+    color: red;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+}

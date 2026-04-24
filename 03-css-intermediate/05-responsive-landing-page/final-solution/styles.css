@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    color: rgba(93, 93, 125, 1);
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex; /* Alinha as duas seções lado a lado */
+    overflow: hidden; /* Evita barras de rolagem indesejadas */
+}
+
+.container-left {
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o texto verticalmente */
+    padding-left: 10%; /* Padding percentual para se adaptar a telas menores */
+}
+
+.container-right {
+    width: 40%;
+    height: 100vh;
+    background-color: rgba(93, 93, 125, 0.16);
+    position: relative; /* Base para o posicionamento da imagem */
+}
+
+header {
+    margin: 24px 0 0 57px;
+    z-index: 10; /* Garante que o menu fique sobre a imagem */
+    position: relative;
+}
+
+img {
+    position: absolute;
+    bottom: 0;          /* Cola os pés no fundo */
+    right: 30%;         /* Ajusta a posição lateral para entrar na parte branca */
+    max-height: 85vh;   /* Garante que a menina caiba na tela do MacBook */
+    width: auto;
+}
+
+h1 {
+    font-size: clamp(40px, 5vw, 70px); /* Fonte diminui conforme a tela */
+    line-height: 1.1;
+    max-width: 400px;
+}
+
+p {
+    font-size: clamp(16px, 2vw, 28px);
+    line-height: 1.5;
+    opacity: 0.6;
+    margin: 20px 0;
+    max-width: 500px;
+}
+
+.button-section {
+    width: 269px;
+    height: 62px;
+    font-size: 24px;
+    background: rgba(148, 153, 234, 1);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0px 10px 24px rgba(148, 153, 234, 0.2);
+    transition: opacity 0.2s;
+}
+
+.button-section:hover { opacity: 0.8; }
+
+a {
+    font-size: 20px;
+    color: #5d5d7d;
+    margin-right: 30px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* RESPONSIVIDADE (MOBILE) */
+@media screen and (max-width: 900px) {
+/* RESPONSIVIDADE (MOBILE) */
+@media screen and (max-width: 900px) {
+    .wrapper {
+        flex-direction: column; /* Coloca o texto em cima e a imagem embaixo */
+        height: auto;
+        overflow: visible;
+    }
+
+    .container-left {
+        width: 100%;
+        height: auto;
+        padding: 60px 20px; /* Dá um respiro para o texto não colar no topo */
+        align-items: center;
+        text-align: center;
+    }
+
+    .container-right {
+        width: 100%;
+        height: 450px; /* Define uma altura fixa para a área cinza no mobile */
+        position: relative; /* Volta a ser base para a imagem */
+        display: flex;
+        justify-content: center; /* Centraliza a imagem horizontalmente */
+        align-items: flex-end;   /* Cola a imagem no fundo do container cinza */
+    }
+
+    header {
+        display: none; /* Esconde o menu no mobile */
+    }
+
+    img {
+        position: relative; /* Sai do absolute para não flutuar */
+        right: 0;           /* Reseta o deslocamento lateral do desktop */
+        bottom: 0;          /* Garante que os pés fiquem na base */
+        max-height: 90%;    /* Faz a imagem ocupar 90% da altura da área cinza (dando respiro no topo) */
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+    }
+}
+
+
+
+    /* .wrapper {
+        flex-direction: column;
+        height: auto;
+        overflow: visible;
+    }
+
+    .container-left {
+        width: 100%;
+        height: auto;
+        padding: 50px 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .container-right {
+        width: 100%;
+        height: 500px;
+        position: static;
+    }
+
+    header {
+        display: none;
+    }
+
+    img {
+        position: static;
+        display: block;
+        margin: 0 auto;
+        max-height: 400px;
+    } */
+}
+
+
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    color: rgba(93, 93, 125, 1);
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+}
+
+.container-left {
+    display: inline-block;
+    width: 60%;
+    padding-left: 136px;
+    margin-top: 30%;
+}
+
+.container-right {
+    display: inline-block;
+    background-color: rgba(93, 93, 125, 0.16);
+    height: 100vh;
+    width: 40%;
+    position: absolute;
+}
+
+img {
+    position: relative;
+    top: 25%;
+    right: 130px;
+}
+
+h1 {
+    font-size: 70px;
+    line-height: 80px;
+    width: 368px;
+}
+
+p {
+    font-size: 28px;
+    line-height: 48px;
+    opacity: 0.6;
+    margin: 15px 0;
+    width: 540px;
+}
+
+.button-section {
+    font-size: 24px;
+    line-height: 100%;
+    text-align: center;
+    box-shadow: 0px 10px 24px 0px rgba(148, 153, 234, 0.1);
+    background: rgba(148, 153, 234, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 30px;
+    width: 269px;
+    height: 62px;
+    cursor: pointer;
+}
+
+.button-section:hover {
+    opacity: .8;
+}
+
+.button-section:active {
+    opacity: .5;
+}
+
+a {
+    font-size: 28px;
+    line-height: 41px;
+    color: #5d5d7d;
+    margin-right: 41px;
+    cursor: pointer;
+}
+
+a:nth-child(2) {
+    opacity: 0.4;
+}
+
+a:hover {
+    opacity: 0.4;
+}
+
+a:active {
+    opacity: 0.8;
+}
+
+header {
+    margin: 24px 0 0 57px;
+}
+
+@media screen and (max-width: 900px) {
+    .container-left {
+        width: 100%;
+        height: 50%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container-right {
+        display: block;
+        height: auto;
+        width: 100%;
+        position: static;
+        padding: 40px;
+    }
+
+    img {
+        position: static;
+        max-width: 90%;
+    }
+
+    header {
+        display: none;
+    }
+
+    h1 {
+        font-size: 36px;
+        line-height: 52px;
+        width: auto;
+        text-align: center;
+        margin: 58px 50px 0 50px;
+    }
+
+    p {
+        margin: 15px 40px;
+        width: auto;
+        text-align: center;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    button {
+        display: block;
+        margin: 0 auto;
+    }
+
+}
+
+    @media screen and (max-width: 330px) {
+        .container-left {
+            height: 70%;
+        }
+    } */

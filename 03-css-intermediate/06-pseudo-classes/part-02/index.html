@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Pseudo Classes Parte 2</title>
+</head>
+
+<body>
+    <!-- <ul>
+      <li>Primeiro</li>
+      <li>Segundo</li>
+      <li>Terceiro</li>
+      <li>Quarto</li>
+      <li>Quinto</li>
+      <li>Sexto</li>
+      <li>Sétimo</li>
+     </ul> -->
+
+    <!-- <ul>
+      <li>Primeiro</li>
+      <li>Segundo</li>
+      <li>Terceiro</li>
+      <li>Quarto</li>
+      <li>Quinto</li>
+      <li>Sexto</li>
+      <li>Sétimo</li>
+     </ul> -->
+
+
+    <div class="container">
+        <div>Olá</div>
+        <span class="brado">Hey</span>
+        <p class="excluido">How</p>
+        <p>Let"s go</p>
+        <div>Click Aqui</div>
+    </div>
+
+</body>
+
+</html>
+
+
+<!-- Pergunta
+
+como faço em html para escrever uma palavra numa linha e outra na linha subsequente, abaixo?
+
+Resposta:
+
+Existem algumas maneiras de fazer isso em HTML, dependendo do que você deseja que as palavras representem estruturalmente.
+
+### 1\. Usando a Tag de Quebra de Linha (Não Semântica)
+
+A maneira mais simples, mas **não recomendada** para a maioria dos casos de estrutura de conteúdo, é usar a tag de quebra de linha $\text{<br>}$ (do inglês *break*):
+
+```html
+Primeira palavra<br>Segunda palavra
+```
+
+  * **Resultado:**
+    Primeira palavra
+    Segunda palavra
+  * **Quando usar:** Quando você precisa de uma quebra de linha dentro de um único bloco de texto (como em um endereço ou estrofe de um poema), mas as palavras/linhas não são conceitualmente blocos de conteúdo separados.
+
+-----
+
+### 2\. Usando Tags de Bloco ($\text{<p>}$, $\text{<div>}$, etc.)
+
+A melhor prática em HTML é usar elementos de bloco, pois eles são projetados para ocupar toda a largura disponível e, por padrão, criam uma nova linha antes e depois deles:
+
+#### Com Parágrafos ($\text{<p>}$)
+
+```html
+<p>Primeira palavra</p>
+<p>Segunda palavra</p>
+```
+
+  * **Resultado:**
+    Primeira palavra
+
+    Segunda palavra
+
+  * **Nota:** $\text{<p>}$ adiciona um espaçamento padrão (margem) entre os blocos, que pode ser removido com CSS, se necessário.
+
+  * **Quando usar:** Quando cada "linha" é um parágrafo de texto distinto.
+
+#### Com Divs ($\text{<div>}$)
+
+```html
+<div>Primeira palavra</div>
+<div>Segunda palavra</div>
+```
+
+  * **Resultado:**
+    Primeira palavra
+    Segunda palavra
+  * **Nota:** $\text{<div>}$ por padrão não adiciona espaçamento extra entre eles, ao contrário do $\text{<p>}$.
+  * **Quando usar:** Para agrupar ou estruturar conteúdo que não se encaixa em uma categoria semântica mais específica (como $\text{<p>}$, $\text{<h1>}$, $\text{<li>}$).
+
+-----
+
+### 3\. Usando Elementos de Lista ($\text{<li>}$)
+
+Se as palavras são itens em uma lista:
+
+```html
+<ul>
+  <li>Primeira palavra</li>
+  <li>Segunda palavra</li>
+</ul>
+```
+
+  * **Resultado:**
+      * Primeira palavra
+      * Segunda palavra
+  * **Quando usar:** Quando as palavras são, conceitualmente, itens em uma lista (ordenada $\text{<ol>}$ ou não ordenada $\text{<ul>}$).
+
+**Recomendação:** Use elementos de bloco como $\text{<p>}$ ou $\text{<div>}$ na maioria das vezes, pois eles dão estrutura semântica e são mais fáceis de estilizar com CSS. Use $\text{<br>}$ apenas quando a quebra de linha for parte do conteúdo, e não uma separação de blocos. -->
+
+
+    <!-- Pergunta:
+
+    usei span para a primeira e span para a segunda, porque ficou na mesma linha
+
+
+    Resposta:
+
+    Isso aconteceu porque o elemento $\text{<span>}$ é um **elemento em linha** (*inline element*) por padrão em HTML.
+
+Elementos em linha ($\text{<span>}$, $\text{<a>}$, $\text{<strong>}$, $\text{<em>}$, etc.) só ocupam o espaço necessário para o seu conteúdo e permitem que outros elementos em linha fiquem ao seu lado, na mesma linha.
+
+Para fazer com que a segunda palavra vá para a linha de baixo usando $\text{<span>}$, você tem duas opções principais:
+
+### Opção 1: Mudar a Exibição (Display) com CSS (Recomendado)
+
+Você pode usar CSS para forçar o elemento $\text{<span>}$ a se comportar como um elemento de bloco (*block element*).
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Aplica a propriedade de bloco a todos os spans neste exemplo */
+  span {
+    display: block; /* Este é o truque! */
+  }
+</style>
+</head>
+<body>
+
+  <span>Primeira palavra</span>
+  <span>Segunda palavra</span>
+
+</body>
+</html>
+```
+
+  * **Resultado:**
+    Primeira palavra
+    Segunda palavra
+
+### Opção 2: Usar a Tag de Quebra de Linha ($\text{<br>}$)
+
+Você pode inserir uma quebra de linha entre os dois $\text{<span>}$ (embora isto não seja ideal do ponto de vista semântico se você está apenas separando blocos de conteúdo).
+
+```html
+<span>Primeira palavra</span><br>
+<span>Segunda palavra</span>
+```
+
+  * **Resultado:**
+    Primeira palavra
+    Segunda palavra
+
+### 💡 A Solução Mais Semântica (Melhor Prática)
+
+Se você precisa que as palavras fiquem em linhas separadas, na maioria das vezes, você **não precisa** usar $\text{<span>}$. Use os elementos de bloco apropriados, como $\text{<div>}$, que já fazem a quebra de linha automaticamente:
+
+```html
+<div>Primeira palavra</div>
+<div>Segunda palavra</div>
+``` -->
+
+<!-- Pergunta:
+
+como estilizar no css, com o :nth-last-child(5), no html, as diferentes tags: <div class="container">
+
+<div>Olá</div>
+
+<span class="brado">Hey</span>
+
+<p class="excluido">How</p>
+
+<p>Let"s go</p>
+
+<a>Click Aqui</a>
+
+</div>
+
+Resoosta:
+
+O seletor $\text{:nth-last-child(5)}$ seleciona o **quinto elemento de trás para frente**, **independentemente de sua tag**, dentro do seu $\text{<div class="container">}$.
+
+No seu exemplo, a contagem de trás para frente dentro do $\text{<div class="container">}$ é a seguinte:
+
+1.  $\text{<a>Click Aqui</a>}$ ($\text{:nth-last-child(1)}$)
+2.  $\text{<p>Let"s go</p>}$ ($\text{:nth-last-child(2)}$)
+3.  $\text{<p class="excluido">How</p>}$ ($\text{:nth-last-child(3)}$)
+4.  $\text{<span class="brado">Hey</span>}$ ($\text{:nth-last-child(4)}$)
+5.  **$\text{<div>Olá</div>}$** ($\text{:nth-last-child(5)}$)
+
+Portanto, o seletor $\text{:nth-last-child(5)}$ irá estilizar a primeira tag $\text{<div>}$ (a que contém "Olá").
+
+## Estilizando o Elemento
+
+Para estilizar o quinto elemento de trás para frente, você simplesmente aplica a regra CSS ao seletor combinado com a classe do pai:
+
+```css
+.container :nth-last-child(5) {
+  /* Estilos para o elemento: <div>Olá</div> */
+  color: red;
+  font-weight: bold;
+  background-color: yellow;
+  border: 2px solid red;
+  padding: 5px;
+}
+```
+
+-----
+
+## Observação Importante sobre a Tag
+
+Se você quisesse ter certeza de que estava estilizando a tag $\text{<div>}$ específica, você poderia adicionar a tag ao seletor, mas neste caso não seria necessário, pois só existe uma $\text{<div>}$ no índice 5 (de trás para frente):
+
+```css
+.container div:nth-last-child(5) {
+  /* Estilos para o <div>, se ele for o quinto elemento de trás para frente */
+  /* Neste caso, o resultado é o mesmo do exemplo acima. */
+  color: green;
+}
+```
+
+### O que aconteceria se a tag no índice 5 fosse outra?
+
+Imagine que você adicione mais um elemento, por exemplo, um $\text{<span>}$ extra:
+
+```html
+<div class="container">
+    <span>Extra</span>  <-- 6º elemento
+    <div>Olá</div>      <-- 5º elemento (nth-last-child(5))
+    <span class="brado">Hey</span>
+    <p class="excluido">How</p>
+    <p>Let"s go</p>
+    <a>Click Aqui</a>
+</div>
+```
+
+  * O $\text{:nth-last-child(5)}$ ainda selecionaria $\text{<div>Olá</div>}$.
+  * No entanto, se você tivesse usado **$\text{span:nth-last-child(5)}$**, ele **não selecionaria nada**, porque o elemento no quinto lugar de trás para frente **é um $\text{<div>}$, não um $\text{<span>}$**.
+
+O seletor $\text{:nth-last-child(n)}$ **sempre conta todos os elementos filhos**, e só depois verifica se o elemento selecionado corresponde à tag ou classe que você especificou antes dele. -->

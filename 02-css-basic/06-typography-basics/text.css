@@ -1,0 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+h1 {
+    color: navy;
+    background: yellow;
+    font-size: 64px;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif; 
+    font-style: italic;
+    text-shadow: -10px -0px 10px rgb(6, 3, 3); /* O text shadow deve ser inspecionado */ 
+}
+
+p {
+    color: navy;
+    background: rgb(4, 231, 87);
+    font-size: 40px;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    /* line-height: 50px;
+    letter-spacing: 10px;
+    word-spacing: 40px;
+    text-align: center; 
+    text-transform: capitalize;
+    text-decoration: overline; */
+    }
+
+/* O sans-serif, são outras fontes nativas */

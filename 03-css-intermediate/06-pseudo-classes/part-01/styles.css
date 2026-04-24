@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a:active {
+    color: red;
+}
+a:visited {
+    color: #fa1b07;
+}
+
+a:hover {
+    color: rgba(7, 140, 12, 0.436);
+}
+
+p {
+    color: blue;
+}
+
+p:hover {
+    color: blueviolet;
+}
+
+input:checked {
+    width: 20px;
+    height: 20px;
+}
+
+input:disabled {
+    width: 100px;
+    height: 100px;
+}
+
+input:focus {
+    border: 1px solid red;
+    outline: none;
+}
+
+input:read-only {
+    border: 1px solid rgb(64, 0, 255);
+    outline: none;
+}
+
+.container {
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 4px;
+    margin: opx auto;
+    padding: 16px;
+}
+
+.container:empty {
+    background: blue;
+    margin: 50px 50px 50px 50px;
+}
+
+/* Pseudo-classes
+Uma pseudo-classe CSS é uma palavra-chave adicionada aos seletores que especificam um estado especial do elemento selecionado. Por exemplo, :hoverpode ser usado para alterar o cor de um botão quando o usuário passa o cursor sobre ele.
+
+CSS
+Copiar para a área de transferência
+Qualquer botão sobre o qual o ponteiro do usuário esteja passando sobre
+button:hover {
+  color: blue;
+}
+As pseudoclasses permitem que você aplique um estilo a um elemento não apenas em relação ao conteúdo da árvore do documento, mas também em relação a fatores externos como o histórico de navegação ( :visited, por exemplo), o status do seu conteúdo (como :checkedem certos elementos de um formulário), ou a posição do mouse (como :hover, que permite saber se o mouse está sobre um elemento ou não).
+
+Nota: Diferentemente das pseudoclasses, os pseudoelementos podem ser usados ​​para estilizar uma parte específica de um elemento.
+
+Sintaxe
+seletor:pseudo-classe {
+  propriedade: valor;
+}
+Assim como nas aulas regulares, você pode encadear juntas quantas pseudo-classes você desejar em um seletor.
+
+Índice de pseudoclasses padrão
+
+:active → quando o elemento está ativo, ou seja, está sendo pressionado
+:visited → seleciona o link que foi visitado
+:hover → quando o mouse passa em cima do elemento
+:checked → usado em radio / checkbox / select
+:disabled → elemnto desabilitado / button / input
+:enabled → elemento está habilitado
+:focus → é aplicado quando um elemento recebe foco, o que pode ocorrer quando o usuário seleciona o elemento
+:read-only → seleciona input ou textarea, que são apenas leitura
+:empty → elemento que não tem filho */

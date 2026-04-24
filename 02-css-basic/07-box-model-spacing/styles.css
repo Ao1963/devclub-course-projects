@@ -1,0 +1,19 @@
+* {
+    box-sizing: content-box;   
+}
+/* 95% dos projetos iremos usar o border box, limita o seu elemento ao tamanho definido. 
+Com o content box, o elemento vai sempre aumentando o tamanho, na medida que vamos c
+olocando mais itens */
+
+.box {
+    width: 500px;
+    height: 500px;
+    background: #ff1493;
+    color: #f5f5f5;
+    text-align: -webkit-center;
+    font-size: 50px;
+    padding: 40px;
+    margin: 0px;
+    border-radius: 10px;
+    border: 10px dashed #0000ff;
+}

@@ -1,0 +1,16 @@
+.box {
+    width: 50px;
+    height: 50px;
+    background: #00ff00;
+
+    margin-top: 20px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+
+padding: 10px 50px;
+/*      00h  03h  06h  09  
+Podemos denominar como ATALHO DO RELÓGIO.
+Então, podemos desenvolver nas medidas para o padding ou margin, uma redução de tempo, colocando apenas, três ou duas medidas, aonde o css vai interpretar, no sentido do relógio, atendendo os lados, quando houver medidas iguais para, o top and botton, or right and left.*/
+
+}

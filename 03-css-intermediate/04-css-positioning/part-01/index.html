@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Position pt.1</title>
+</head>
+
+<body>
+  <div class="div-dad">
+      Dad Static Padrão
+    <div class="div-son">
+      Son Static
+    </div>
+  </div>
+
+  <div class="uncle">
+    <div class="uncle-word">Uncle Fixed</div>
+  </div>
+
+  <div class="aunt-container">
+    <div class="aunt-word">Aunt Sticky</div>
+
+  </div>
+
+  <div class="nephew-container">
+    <div class="nephew-word">Nephew Relative</div>
+  </div>
+
+  <div class="niece-container">
+    <div class="niece-word">Niece Absolute</div>
+  </div>
+
+</body>
+
+</html>
+
+<!-- Tag ou Propriedade
+ A propriedade position em CSS determina como um elemento é posicionado numa página da web, influenciando o seu layout e a forma como interage com outros elementos. Existem cinco valores principais para position: static, relative, absolute, fixed e sticky, cada um com um comportamento de posicionamento diferente. 
+Valores da Propriedade position e seus comportamentos:
+static:
+O valor padrão. O elemento é posicionado de acordo com o fluxo normal do documento, sem ser afetado por top, right, bottom ou left.
+fixed:
+O elemento é removido do fluxo normal e posicionado em relação à janela do navegador, permanecendo sempre na mesma posição, mesmo com a rolagem da página.
+sticky:
+O elemento é posicionado de acordo com o fluxo normal até atingir um limite definido por top, bottom, right ou left, onde se torna fixed. 
+
+relative:
+O elemento é posicionado de acordo com o fluxo normal, mas pode ser deslocado usando top, right, bottom e left em relação à sua posição original. Não afeta o posicionamento de outros elementos.
+absolute:
+O elemento é removido do fluxo normal do documento e posicionado em relação ao seu primeiro ancestral que não seja static. Se não houver nenhum ancestral não static, é posicionado em relação ao documento inicial (<html>).
+Como usar a propriedade position:
+Para aplicar um valor à propriedade position, utilize a seguinte sintaxe CSS:
+element {
+  position: valor; /* Pode ser static, relative, absolute, fixed ou sticky */
+}
+  Exemplo:
+  .elemento {
+  position: absolute; /* O elemento será posicionado em relação ao seu ancestral mais próximo que não seja static */
+  top: 10px; /* Define a distância do topo do elemento para o topo do seu ancestral */
+  left: 20px; /* Define a distância da esquerda do elemento para a esquerda do seu ancestral */
+}
+  Ao combinar position com outras propriedades como top, right, bottom, left e z-index, é possível criar layouts complexos e personalizados.  -->

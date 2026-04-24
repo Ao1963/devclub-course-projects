@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1 {
+    color: #ffaa00;
+    font-size: 80px;
+    font-weight: bold;
+    font-family: "Roboto", serif;
+    font-style: italic;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0,5);
+    /* no navegador Chrome, só consegui aplicar pelo recurso inspecionar, será necessário conversar com a comunidade, ou pesquisar */
+}
+
+p {
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "Roboto", serif;
+    line-height: 40px;
+    letter-spacing: normal;
+    word-spacing: 25px;
+    text-align: left;
+    text-transform: full-width;
+    text-decoration: dotted;
+}

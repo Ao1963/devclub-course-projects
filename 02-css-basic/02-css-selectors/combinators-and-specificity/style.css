@@ -1,0 +1,20 @@
+.titulo {
+    color: rgb(233, 231, 68);
+    background: brown;
+    font-weight: bold;
+}
+.texto {
+    color: blue;
+    background: gainsboro;
+    font-size: 14px;
+}
+.botao-1 {
+    color: black;
+    background: gold;
+    font-style: italic;
+} 
+.botao-2 {
+    font-style: italic;
+    color: black;
+    background: aquamarine;
+}

@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 200vh;
+    width: 200vw;
+}
+
+.div-dad {
+    height: 350px;
+    width: 350px;
+    background-color: #0000ff;
+    position: static;
+    color: #ffffff;
+    margin: 80px;
+    font-weight: bold;
+}
+
+.div-son {
+    height: 150px;
+    width: 150px;
+    background-color: #FFFF00;
+    color: #000000;
+    position: static;
+    margin: 91px;
+}
+
+.uncle {
+    background-color: #FF0000;
+    height: 250px;
+    width: 250px;
+    position: fixed;
+    top: 335px;
+    left: 315px;
+    opacity: 0.7;
+    opacity: 1;
+
+}
+
+.uncle-word {
+    color: #ffffff;
+    position: fixed;
+    top: 440px;
+    left: 355px;
+    font-size: 30px;
+    font-family: arial;
+    font-weight: bold;
+
+
+}
+
+.aunt-container {
+    background-color: #008000;
+    height: 250px;
+    width: 250px;
+    margin: 270px;
+    position: sticky;
+    left: 20px;
+    top: 270px;
+}
+
+.aunt-word {
+    color: #ffffff;
+    position: sticky;
+    left: 50px;
+    top: 50px;
+    font-size: 30px;
+    font-family: rockwell;
+    font-weight: bold;
+}
+
+.nephew-container {
+    background-color: #daa520;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    left: 420px;
+    top: -70px;
+}
+
+.nephew-word {
+    color: #0000ff;
+    position: absolute;
+    left: 25%;
+    top: 43%;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: futura;
+}
+
+
+.niece-container {
+    background-color: #ff2998;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: 200px;
+
+
+}
+
+.niece-word {
+    color: #0000ff;
+    position: absolute;
+    left: 35%;
+    top: 45%;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: futura;
+
+}
+
+/* Vamos falar de Position 
+A propriedade position em CSS controla como um elemento é posicionado na página, em relação ao seu contexto ou ao viewport. 
+
+Existem cinco valores principais para a position: 
+1. static (posição padrão); 
+2. fixed (fixo na tela); 
+3. sticky (fixo quando o usuário rola, alternando entre relative e fixed).
+4. relative (relativo ao seu lugar original); 
+5. absolute (relativo ao elemento pai ou ao documento); 
+
+Detalhes sobre os valores de position:
+
+static:
+É a posição padrão de um elemento. Não se altera, mesmo com as propriedades top, bottom, right ou left.
+
+fixed:
+Posiciona o elemento em relação ao viewport (a janela do navegador). Ele permanece fixo no mesmo lugar, mesmo que o usuário role a página. Usado para criar elementos como barras de navegação que ficam visíveis mesmo durante a rolagem.
+
+sticky:
+O elemento é posicionado de acordo com o fluxo normal até atingir um limite definido por top, bottom, right ou left, onde se torna fixed. 
+
+relative:
+Mantém o elemento na sua posição original, mas permite que seja deslocado em relação a essa posição usando as propriedades top, bottom, right ou left. Não afeta o layout do resto da página.
+
+absolute:
+Retira o elemento do fluxo normal da página e o posiciona em relação ao seu elemento pai mais próximo (se o pai não tiver position diferente de static, será o documento). É possível posicionar o elemento em qualquer lugar da tela usando top, bottom, right ou left.
+
+
+
+Propriedades relacionadas à position:
+top:
+Define a distância do elemento em relação ao topo do seu elemento pai (ou do viewport, no caso de fixed).
+bottom:
+Define a distância do elemento em relação à parte inferior do seu elemento pai (ou do viewport).
+left:
+Define a distância do elemento em relação ao lado esquerdo do seu elemento pai (ou do viewport).
+right:
+Define a distância do elemento em relação ao lado direito do seu elemento pai (ou do viewport).
+z-index:
+Define a ordem de sobreposição dos elementos em diferentes níveis. Elementos com z-index maior ficam em cima de outros. */

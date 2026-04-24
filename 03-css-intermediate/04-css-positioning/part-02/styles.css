@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 200vh;
+    width: 200vw;
+}
+
+.div-dad {
+    height: 350px;
+    width: 350px;
+    background-color: #FF1396;
+    position: fixed;
+    top: 200px;
+    left: 200px;
+    /* opacity: 0.2; */
+}
+
+.div-son {
+    height: 150px;
+    width: 150px;
+    background-color: #FFFF00;
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
+
+.uncle {
+    background-color: #FF0000;
+    height: 100px;
+    width: 100px;
+    position: sticky;
+    top: 326px;
+    left: 326px;
+}
+
+.circulo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: blue;
+    position: relative;
+    top: 50px;
+    left: 326px;
+}
+
+.triangulo {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid green;
+    position: absolute;
+    top: 101px;
+    left: 151px;
+}
+
+.losango {
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
+    /* Gira um quadrado para criar um losango */
+    background-color: purple;
+    position: sticky;
+    left: 500px;
+    top: 570px;
+}
+
+/* Vamos falar de Position 
+A propriedade position em CSS controla como um elemento é posicionado na página, em relação ao seu contexto ou ao viewport. 
+
+Existem cinco valores principais para a position: 
+1. static (posição padrão); 
+2. fixed (fixo na tela); 
+3. sticky (fixo quando o usuário rola, alternando entre relative e fixed).
+4. relative (relativo ao seu lugar original); 
+5. absolute (relativo ao elemento pai ou ao documento); 
+
+Detalhes sobre os valores de position:
+
+static:
+É a posição padrão de um elemento. Não se altera, mesmo com as propriedades top, bottom, right ou left.
+
+fixed:
+Posiciona o elemento em relação ao viewport (a janela do navegador). Ele permanece fixo no mesmo lugar, mesmo que o usuário role a página. Usado para criar elementos como barras de navegação que ficam visíveis mesmo durante a rolagem.
+
+sticky:
+O elemento é posicionado de acordo com o fluxo normal até atingir um limite definido por top, bottom, right ou left, onde se torna fixed. 
+
+relative:
+Mantém o elemento na sua posição original, mas permite que seja deslocado em relação a essa posição usando as propriedades top, bottom, right ou left. Não afeta o layout do resto da página.
+
+absolute:
+Retira o elemento do fluxo normal da página e o posiciona em relação ao seu elemento pai mais próximo (se o pai não tiver position diferente de static, será o documento). É possível posicionar o elemento em qualquer lugar da tela usando top, bottom, right ou left.
+
+
+
+Propriedades relacionadas à position:
+top:
+Define a distância do elemento em relação ao topo do seu elemento pai (ou do viewport, no caso de fixed).
+bottom:
+Define a distância do elemento em relação à parte inferior do seu elemento pai (ou do viewport).
+left:
+Define a distância do elemento em relação ao lado esquerdo do seu elemento pai (ou do viewport).
+right:
+Define a distância do elemento em relação ao lado direito do seu elemento pai (ou do viewport).
+z-index:
+Define a ordem de sobreposição dos elementos em diferentes níveis. Elementos com z-index maior ficam em cima de outros. */
