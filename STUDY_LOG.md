@@ -15,7 +15,7 @@ This file serves as a professional record of technical concepts, workflows, and 
 
 ---
 
-## [2026-04-27] - Project Architecture & Directory Documentation
+## [2026-04-25] - Project Architecture & Directory Documentation
 **Topics:** #Workflow #Documentation #DirectoryTree #BestPractices #KebabCase
 
 ### 💡 Key Learnings
@@ -29,5 +29,24 @@ This file serves as a professional record of technical concepts, workflows, and 
 
 ### 🎯 Professional Impact
 Implementing these standards transforms a "learner's folder" into a "professional repository." It demonstrates attention to detail, maintainability, and readiness for collaborative environments (Git/GitHub).
+
+---
+---
+
+## [2026-04-26] - Git Synchronization & Technical Refactoring
+**Topics:** #GitFlow #Terminal #Refactoring #BestPractices #Gitignore
+
+### 💡 Key Learnings
+
+- **Flow Synchronization:** Practiced the full cycle of syncing between GitHub (Web) and Local Machine (Mac) using `git pull` to keep the environment updated.
+- **Advanced Refactoring:** 
+    - Translated asset names from Portuguese to English using **kebab-case**.
+    - Fixed "Breaking Changes" by updating HTML paths after renaming files (Maintenance).
+- **Environment Cleaning (.gitignore):** 
+    - Created and configured a `.gitignore` file to prevent system junk like `.DS_Store` from polluting the professional repository.
+- **Terminal Proficiency:** Mastered the `git add .` -> `git commit -m` -> `git push` workflow, including troubleshooting common terminal states like `dquote>`.
+
+### 🎯 Professional Impact
+Today's session improved the project's **internationalization** and **maintainability**. By removing special characters and spaces from filenames, the project is now compatible with all operating systems and web servers, meeting global industry standards.
 
 ---
