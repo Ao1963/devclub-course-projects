@@ -47,8 +47,39 @@ Implementing these standards transforms a "learner's folder" into a "professiona
 - **Terminal Proficiency:** Mastered the `git add .` -> `git commit -m` -> `git push` workflow, including troubleshooting common terminal states like `dquote>`.
 - **Recursive Cleanup:** Learned how to use git rm -r --cached to remove untracked system files across all subdirectories, ensuring a clean and professional repository.
 
-
 ### 🎯 Professional Impact
 Today's session improved the project's **internationalization** and **maintainability**. By removing special characters and spaces from filenames, the project is now compatible with all operating systems and web servers, meeting global industry standards.
 
 ---
+---
+
+## [2026-04-28] - Git Architecture & Documentation Standards
+**Topics:** #GitAdvanced #Markdown #Glossary #LearningLog #Naming
+
+### 💡 Key Learnings
+
+- **Git Internal Logic:** Clarified the use of `git init` (one-time setup) vs. the ongoing `git push/pull` workflow to avoid repository conflicts.
+- **Documentation Granularity:** Implemented specific `README.md` and `notes.md` files within submodules to turn folders into self-explanatory technical guides.
+- **Git Metadata Tracking:** Understood that Git tracks **content (files)** rather than empty directories, necessitating the use of placeholder files (like `notes.md`) to maintain project structure in remote repositories.
+- **UI Visual Cues:** Decoded VS Code's Git indicators: **U** (Untracked), **A** (Added), and **Green Dots** (Folder activity).
+
+### 🎯 Professional Impact
+By documenting the Git workflow and establishing a technical glossary, I am building a "Living Documentation." This proves to potential recruiters that I have a deep understanding of the tools I use, beyond just memorizing commands.
+
+---
+
+## 📖 Glossary & Technical Terms
+
+### Git Workflow & Commands
+- **branch:** A parallel timeline of the project.
+- **git init:** Command used once to initialize a local repository.
+- **main:** The standard name for the primary official branch.
+- **origin:** The default alias for the remote repository on GitHub.
+
+### VS Code Git Indicators
+- **A (Added):** File staged and ready for commit.
+- **Green Dot:** Indicates a folder contains new or modified files.
+- **U (Untracked):** New file not yet tracked by Git.
+
+---
+
