@@ -72,7 +72,7 @@ By documenting the Git workflow and establishing a technical glossary, I am buil
 
 ### Git Workflow & Commands
 - **branch:** A parallel timeline of the project.
-- **git init:** Command used once to initialize a local repository.
+- **`git init`:** Command used once to initialize a local repository.
 - **main:** The standard name for the primary official branch.
 - **origin:** The default alias for the remote repository on GitHub.
 
