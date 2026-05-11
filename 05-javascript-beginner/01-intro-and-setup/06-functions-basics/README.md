@@ -1,1 +1,0 @@
-(Agrupa: Functions)

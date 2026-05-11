@@ -111,4 +111,4 @@ In programming, there is no "trying"—there is only execution. This section cov
 *   **Mission-Driven Coding:** An algorithm is a sequence of absolute instructions. If the code doesn't run, the logic is refined until the goal is achieved.
 *   **Overcoming Anxiety:** Focusing on thorough analysis and technical properties rather than rushing the process. Quality execution is the result of disciplined preparation.
 
-*My study notes from the DevClub Fullstack Module.*
+*My study notes from the DevClub Fullstack Module.
