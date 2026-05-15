@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectando JavaScript nos nossos sites</title>
+    
+    <!-- Conectando o JavaScript de forma moderna e sem travar a página -->
+    <script src="./script.js" defer></script>
+
+    <!-- Estilos organizados dentro do Head -->
+    <style>
+        h1, h2 {
+            color: #333;
+        }
+        .paragraph-js {
+            font-size: 18px;
+            color: #555;
+        }
+        .main-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }   
+        .main-button:hover {
+            background-color: #0056b3;
+        }       
+    </style>
+</head>
+<body>
+    <h1 id="main-title">DevClub Study Progress</h1>
+    <p id="status-text">Learning DOM manipulation.</p>
+
+    <!-- Mudado para h2 para respeitar as regras de SEO técnico -->
+    <h2>Conectando JavaScript nos nossos sites</h2>
+    
+    <input id="main-input" type="text" name="username" placeholder="AnselmoOliveira">
+
+    <!-- Elementos com a mesma classe prontos para a aula de getElementsByClassName -->
+    <p class="paragraph-js">Começando a aprender trabalhar com JavaScript</p>
+    <p class="paragraph-js">A linguagem de programação mais utilizada</p>
+    
+    <button class="main-button">Clica Aqui</button>
+</body>
+</html>
