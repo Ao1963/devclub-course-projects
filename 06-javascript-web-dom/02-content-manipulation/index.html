@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação de Conteúdo e Propriedades</title>
+    <script src="./script.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .paragraph-js {
+            font-size: 18px;
+            color: #555;
+        }
+        .main-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }   
+        .main-button:hover {
+            background-color: #0056b3;
+        }       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-title">Seção de Testes: Manipulação</h1>
+        <p id="target-paragraph">Este texto original será modificado pelo JavaScript.</p>
+        
+        <!-- Adicionado o evento oninput para monitorar a digitação -->
+        <input id="user-input" type="text" oninput="digiteiNoInput()" placeholder="Digite algo aqui...">
+        
+        <!-- Adicionado o evento onclick para chamar a função ao clicar -->
+        <button class="main-button" onclick="cliqueiNoBotao()">Clica Aqui</button>
+        
+        <!-- Área onde a lição de casa vai injetar o novo parágrafo -->
+        <div id="media-area"></div>
+    </div>
+</body>
+</html>
