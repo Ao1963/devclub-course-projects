@@ -9,3 +9,15 @@ This repository contains a fully responsive and dynamic currency converter, buil
 
 ---
 *Status: Structural architecture completely mapped out. Ready for CSS implementation.*
+
+---
+
+## 🎨 CSS Architecture & UI Customization
+
+This section marks the visual implementation phase, applying absolute positioning, user-feedback states, and multi-palette color exploration based on custom creative benchmarks.
+
+### 🔑 Core Properties & Fixes:
+*   **The Clock Effect Parsing:** Understanding padding value placement maps out strictly as Top, Right, Bottom, and Left sequentially.
+*   **Kebab-Case Correction:** Resolving standard properties such as `margin-bottom` and text node targeting via the `color` attribute instead of background highlights.
+*   **Visual States Hooks:** Implementing smooth responsive feedback on input actions using `:hover` and `:active` pseudo-classes to enhance UX.
+*   **Layout Centering Behavior:** Utilizing `margin: 0 auto` combined with an explicit `display: block` conversion to shift default inline image elements into structured, center-aligned block nodes.
