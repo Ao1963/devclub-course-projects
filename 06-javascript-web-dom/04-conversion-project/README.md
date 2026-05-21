@@ -32,3 +32,14 @@ This section logs the successful connection between user interface inputs and th
 *   **Target Scope Isolation:** Resolved selector collisions by refactoring elements into specific structural nodes (`.currency-value-to-convert` and `.currency-value`).
 *   **Data Normalization:** Implemented `.replace(",", ".")` string filtering to ensure compatibility with JavaScript's floating-point math engine regardless of regional user input habits.
 *   **International Formatting:** Leveraged the native `Intl.NumberFormat` API to render localized currencies (BRL and USD) dynamically based on professional compliance standards.
+
+---
+
+## 🌎 Scalability: Dynamic Currency Switching & Minimalist Architecture
+
+This final phase transformed the application into a scalable, multi-currency engine capable of rendering global currencies seamlessly.
+
+### 🔑 Advanced Software Patterns Implemented:
+*   **The Change Event Vector:** Leveraged `addEventListener("change")` to monitor menu selection switches, triggering immediate text updates and component alterations.
+*   **Asset Consistency Standard:** Enforced a unified, high-resolution PNG structure (`euro.png`, `chf-flag.png`, `gbp-flag.png`) to preserve pixel-perfect UI/UX layouts across multiple device resolutions.
+*   **Clean Data Mapping:** Hardcoded explicit payload values (`value="USD"`, `value="CHF"`) within option tags to decouple programmatic evaluations from descriptive interface text labels, mitigating language syntax bugs.
