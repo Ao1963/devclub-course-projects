@@ -21,3 +21,14 @@ This section marks the visual implementation phase, applying absolute positionin
 *   **Kebab-Case Correction:** Resolving standard properties such as `margin-bottom` and text node targeting via the `color` attribute instead of background highlights.
 *   **Visual States Hooks:** Implementing smooth responsive feedback on input actions using `:hover` and `:active` pseudo-classes to enhance UX.
 *   **Layout Centering Behavior:** Utilizing `margin: 0 auto` combined with an explicit `display: block` conversion to shift default inline image elements into structured, center-aligned block nodes.
+
+---
+
+## 🧮 Implementation: Calculation Engine & Scope Resolution
+
+This section logs the successful connection between user interface inputs and the computational logic layer, handling data formatting and scoping bugs.
+
+### 🔑 Engineering Milestones:
+*   **Target Scope Isolation:** Resolved selector collisions by refactoring elements into specific structural nodes (`.currency-value-to-convert` and `.currency-value`).
+*   **Data Normalization:** Implemented `.replace(",", ".")` string filtering to ensure compatibility with JavaScript's floating-point math engine regardless of regional user input habits.
+*   **International Formatting:** Leveraged the native `Intl.NumberFormat` API to render localized currencies (BRL and USD) dynamically based on professional compliance standards.

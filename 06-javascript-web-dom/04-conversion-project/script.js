@@ -1,54 +1,97 @@
-console.clear(); // Clears the browser console for clean debugging
+console.clear(); // Limpa o console a cada teste no seu MacBook Air
 
 // =========================================================================
-// 🎯 STEP 1: Mapping DOM Elements (Precise Node Selection)
+// 🎯 PASSO 1: Mapeamento Total de Elementos (DOM Selection)
 // =========================================================================
 const convertButton = document.querySelector("button");
-const valueInput = document.querySelector("input");
+const inputCurrency = document.querySelector("input");
+const currencySelect = document.getElementById("select-to"); // Seleciona o menu de moedas
 
-// Mapeando diretamente os parágrafos de valor de cada moeda pelas suas classes
-const currencyValueToConvert = document.querySelector(".currency-box:nth-of-type(1) .currency-value"); // Real Value Text
-const currencyValueConverted = document.querySelector(".currency-box:nth-of-type(2) .currency-value"); // Target Value Text
+// Alvos de alteração na tela (Origem e Destino)
+const currencyValueToConvert = document.querySelector(".currency-value-to-convert"); // R$ 0,00
+const currencyValueConverted = document.querySelector(".currency-value"); // Valor final convertido
+const currencyNameTarget = document.querySelector(".currency-box:nth-of-type(2) .currency"); // Nome da moeda alvo
+const currencyImgTarget = document.querySelector(".currency-img"); // Imagem da bandeira alvo
+
+// Taxas de câmbio fictícias para o exercício (Mercado de hoje)
+const exchangeRates = {
+    USD: 5.20,
+    EUR: 5.60,
+    CHF: 5.85,
+    GBP: 6.50
+};
 
 // =========================================================================
-// 🧮 STEP 2: Processing & Calculation Core Engine
+// 🧮 PASSO 2: Motor de Conversão Matemática (Disparado pelo Botão)
 // =========================================================================
 function convertValues() {
-    console.log("The button was clicked! Processing conversion...");
-    
-    // Capturando o texto digitado e trocando a vírgula por ponto automaticamente (Anti-bug)
-    let rawAmount = valueInput.value;
-    let cleanAmount = rawAmount.replace(",", "."); 
-    
-    // Convertendo o texto limpo em um número real para a matemática funcionar
-    const inputAmount = parseFloat(cleanAmount);
-    console.log(`User entered amount (Normalized): ${inputAmount}`);
-    
-    // Validação de segurança: se o usuário não digitou um número válido, para a execução
-    if (isNaN(inputAmount)) {
-        alert("Por favor, digite um número válido.");
+    console.log("Botão acionado com sucesso!");
+
+    let rawValue = inputCurrency.value;
+    let cleanValue = rawValue.replace(",", ".");
+    const inputCurrencyValue = parseFloat(cleanValue);
+
+    if (isNaN(inputCurrencyValue)) {
+        alert("Por favor, digite um valor numérico válido.");
         return;
     }
 
-    const dollarToday = 5.20; 
-    const convertedAmount = inputAmount / dollarToday;
-    
-    // =========================================================================
-    // 👁️ STEP 3: Updating the UI (DOM Output Manipulation)
-    // =========================================================================
-    // Atualizando as telas com formatação de moeda profissional
+    // Identifica qual moeda está selecionada no menu agora (Ex: "USD", "EUR")
+    const targetCurrency = currencySelect.value;
+
+    // Pega a taxa correta da moeda escolhida dentro do nosso objeto de taxas
+    const rateToday = exchangeRates[targetCurrency];
+    const convertedValue = inputCurrencyValue / rateToday;
+
+    // Atualiza a moeda de origem (Real)
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
-    }).format(inputAmount);
+    }).format(inputCurrencyValue);
 
-    currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+    // Atualiza a moeda de destino com sua respectiva formatação internacional
+    let locale = "en-US";
+    if (targetCurrency === "EUR") locale = "de-DE";
+    if (targetCurrency === "CHF") locale = "de-CH";
+    if (targetCurrency === "GBP") locale = "en-GB";
+
+    currencyValueConverted.innerHTML = new Intl.NumberFormat(locale, {
         style: "currency",
-        currency: "USD"
-    }).format(convertedAmount);
+        currency: targetCurrency
+    }).format(convertedValue);
 }
 
 // =========================================================================
-// ⚡ STEP 4: Event Binding (Listening to User Actions)
+// 🔄 PASSO 3: Alternância Dinâmica de Bandeiras e Nomes (Disparado pelo Select)
 // =========================================================================
-convertButton.addEventListener("click", convertValues);
+function changeCurrency() {
+    console.log("O usuário mudou a moeda de destino no menu!");
+    const selectedCurrency = currencySelect.value;
+
+    if (selectedCurrency === "USD") {
+        currencyNameTarget.innerHTML = "Dólar americano";
+        currencyImgTarget.src = "./assets/united-states-flag.png"; // Padrão PNG
+    }
+    if (selectedCurrency === "EUR") {
+        currencyNameTarget.innerHTML = "Euro";
+        currencyImgTarget.src = "./assets/euro.png"; // Padrão PNG
+    }
+    if (selectedCurrency === "CHF") {
+        currencyNameTarget.innerHTML = "Franco Suíço";
+        currencyImgTarget.src = "./assets/chf-flag.png"; // Padrão PNG
+    }
+    if (selectedCurrency === "GBP") {
+        currencyNameTarget.innerHTML = "Libra Esterlina";
+        currencyImgTarget.src = "./assets/gbp-flag.png"; // Padrão PNG
+    }
+
+
+    // Roda a conversão automaticamente ao mudar a moeda para atualizar o valor na tela
+    convertValues();
+}
+
+// =========================================================================
+// ⚡ PASSO 4: Ligando os Motores (Event Observers)
+// =========================================================================
+convertButton.addEventListener("click", convertValues); // Escuta o clique do botão
+currencySelect.addEventListener("change", changeCurrency); // Escuta a mudança no menu select
