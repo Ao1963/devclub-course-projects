@@ -1,97 +1,72 @@
-console.clear(); // Limpa o console a cada teste no seu MacBook Air
+console.clear(); // Restabelece o controle de fluxo limpo no console
 
-// =========================================================================
-// 🎯 PASSO 1: Mapeamento Total de Elementos (DOM Selection)
-// =========================================================================
 const convertButton = document.querySelector("button");
-const inputCurrency = document.querySelector("input");
-const currencySelect = document.getElementById("select-to"); // Seleciona o menu de moedas
+const inputCurrency = document.getElementById("user-input");
+const selectFrom = document.getElementById("select-from");
+const selectTo = document.getElementById("select-to");
 
-// Alvos de alteração na tela (Origem e Destino)
-const currencyValueToConvert = document.querySelector(".currency-value-to-convert"); // R$ 0,00
-const currencyValueConverted = document.querySelector(".currency-value"); // Valor final convertido
-const currencyNameTarget = document.querySelector(".currency-box:nth-of-type(2) .currency"); // Nome da moeda alvo
-const currencyImgTarget = document.querySelector(".currency-img"); // Imagem da bandeira alvo
+const currencyNameFrom = document.querySelector(".currency-box:nth-of-type(1) .currency");
+const currencyValueToConvert = document.querySelector(".currency-value-to-convert");
+const currencyImgFrom = document.querySelector(".currency-img-from"); // Classe corrigida
 
-// Taxas de câmbio fictícias para o exercício (Mercado de hoje)
-const exchangeRates = {
-    USD: 5.20,
-    EUR: 5.60,
-    CHF: 5.85,
-    GBP: 6.50
+const currencyNameTarget = document.querySelector(".currency-box:nth-of-type(2) .currency");
+const currencyValueConverted = document.querySelector(".currency-value");
+const currencyImgTarget = document.querySelector(".currency-img-to"); // Classe corrigida
+
+// Matriz de taxas fictícias em relação à base cambial do Real (BRL)
+const baseRatesInBRL = { BRL: 1.0, USD: 5.20, EUR: 5.60, CHF: 5.85, GBP: 6.50 };
+
+// Dicionário de internacionalização e caminhos de arquivos de imagem
+const currencyConfigs = {
+    BRL: { locale: "pt-BR", label: "Real Brasileiro", flag: "brazil-flag.png" },
+    USD: { locale: "en-US", label: "Dólar Americano", flag: "united-states-flag.png" },
+    EUR: { locale: "de-DE", label: "Euro", flag: "euro.png" },
+    CHF: { locale: "de-CH", label: "Franco Suíço", flag: "chf-flag.png" },
+    GBP: { locale: "en-GB", label: "Libra Esterlina", flag: "gbp-flag.png" }
 };
 
-// =========================================================================
-// 🧮 PASSO 2: Motor de Conversão Matemática (Disparado pelo Botão)
-// =========================================================================
-function convertValues() {
-    console.log("Botão acionado com sucesso!");
-
+function performConversion() {
+    console.log("Processamento de conversão acionado!");
+    
     let rawValue = inputCurrency.value;
     let cleanValue = rawValue.replace(",", ".");
-    const inputCurrencyValue = parseFloat(cleanValue);
+    const inputAmount = parseFloat(cleanValue);
 
-    if (isNaN(inputCurrencyValue)) {
-        alert("Por favor, digite um valor numérico válido.");
-        return;
-    }
+    if (isNaN(inputAmount)) return;
 
-    // Identifica qual moeda está selecionada no menu agora (Ex: "USD", "EUR")
-    const targetCurrency = currencySelect.value;
+    const fromCurrency = selectFrom.value;
+    const toCurrency = selectTo.value;
 
-    // Pega a taxa correta da moeda escolhida dentro do nosso objeto de taxas
-    const rateToday = exchangeRates[targetCurrency];
-    const convertedValue = inputCurrencyValue / rateToday;
+    // Lógica cruzada mão dupla
+    const amountInBRL = inputAmount * baseRatesInBRL[fromCurrency];
+    const finalResult = amountInBRL / baseRatesInBRL[toCurrency];
 
-    // Atualiza a moeda de origem (Real)
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    }).format(inputCurrencyValue);
+    // Formatação regional automática de decimais e símbolos mundiais
+    currencyValueToConvert.innerHTML = new Intl.NumberFormat(currencyConfigs[fromCurrency].locale, {
+        style: "currency", currency: fromCurrency
+    }).format(inputAmount);
 
-    // Atualiza a moeda de destino com sua respectiva formatação internacional
-    let locale = "en-US";
-    if (targetCurrency === "EUR") locale = "de-DE";
-    if (targetCurrency === "CHF") locale = "de-CH";
-    if (targetCurrency === "GBP") locale = "en-GB";
-
-    currencyValueConverted.innerHTML = new Intl.NumberFormat(locale, {
-        style: "currency",
-        currency: targetCurrency
-    }).format(convertedValue);
+    currencyValueConverted.innerHTML = new Intl.NumberFormat(currencyConfigs[toCurrency].locale, {
+        style: "currency", currency: toCurrency
+    }).format(finalResult);
 }
 
-// =========================================================================
-// 🔄 PASSO 3: Alternância Dinâmica de Bandeiras e Nomes (Disparado pelo Select)
-// =========================================================================
-function changeCurrency() {
-    console.log("O usuário mudou a moeda de destino no menu!");
-    const selectedCurrency = currencySelect.value;
+function updateInterfaceLayout() {
+    console.log("Mudança de estado nos menus select detectada!");
+    
+    const fromCurrency = selectFrom.value;
+    const toCurrency = selectTo.value;
 
-    if (selectedCurrency === "USD") {
-        currencyNameTarget.innerHTML = "Dólar americano";
-        currencyImgTarget.src = "./assets/united-states-flag.png"; // Padrão PNG
-    }
-    if (selectedCurrency === "EUR") {
-        currencyNameTarget.innerHTML = "Euro";
-        currencyImgTarget.src = "./assets/euro.png"; // Padrão PNG
-    }
-    if (selectedCurrency === "CHF") {
-        currencyNameTarget.innerHTML = "Franco Suíço";
-        currencyImgTarget.src = "./assets/chf-flag.png"; // Padrão PNG
-    }
-    if (selectedCurrency === "GBP") {
-        currencyNameTarget.innerHTML = "Libra Esterlina";
-        currencyImgTarget.src = "./assets/gbp-flag.png"; // Padrão PNG
-    }
+    // Rotação dinâmica de nomes e arquivos de imagem
+    currencyNameFrom.innerHTML = currencyConfigs[fromCurrency].label;
+    currencyImgFrom.src = `./assets/${currencyConfigs[fromCurrency].flag}`;
 
+    currencyNameTarget.innerHTML = currencyConfigs[toCurrency].label;
+    currencyImgTarget.src = `./assets/${currencyConfigs[toCurrency].flag}`;
 
-    // Roda a conversão automaticamente ao mudar a moeda para atualizar o valor na tela
-    convertValues();
+    performConversion();
 }
 
-// =========================================================================
-// ⚡ PASSO 4: Ligando os Motores (Event Observers)
-// =========================================================================
-convertButton.addEventListener("click", convertValues); // Escuta o clique do botão
-currencySelect.addEventListener("change", changeCurrency); // Escuta a mudança no menu select
+convertButton.addEventListener("click", performConversion);
+selectFrom.addEventListener("change", updateInterfaceLayout);
+selectTo.addEventListener("change", updateInterfaceLayout);
