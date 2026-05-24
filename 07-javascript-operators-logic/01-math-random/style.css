@@ -1,0 +1,86 @@
+@import url('https://googleapis.com');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #1E1E24;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 200px; /* Impede a logo de carregar gigante na tela */
+    object-fit: contain;
+    display: block;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 24px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 90%; /* Garante que o texto quebre linha em telas de celulares */
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 340px; /* Alinha o grupo de inputs na mesma largura do botão */
+}
+
+input {
+    width: 100%; /* Ocupa o espaço disponível fluidamente */
+    height: 64px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.15);
+    font-weight: 500;
+    font-size: 24px;
+    color: #ffffff;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    max-width: 340px; /* Trava o tamanho máximo no Mac, mas encolhe no iPhone */
+    height: 64px;
+    border: none;
+    border-radius: 14px;
+    background: #AEC346;
+    box-shadow: 0px 8px 24px rgba(174, 195, 70, 0.3);
+    font-weight: 700;
+    font-size: 22px;
+    color: #ffffff;
+    margin-top: 35px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0px 12px 28px rgba(174, 195, 70, 0.45);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+
+

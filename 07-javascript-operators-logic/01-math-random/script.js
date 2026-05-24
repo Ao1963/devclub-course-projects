@@ -1,45 +1,39 @@
-console.clear(); // Limpa o console no seu MacBook Air
+console.clear(); // Limpa logs antigos para depuração
 
-// =========================================================================
-// 📐 PARTE 1: Constantes e Funções Avançadas (Alinhado ao Conteúdo do Curso)
-// =========================================================================
+// 🎯 1. Mapeamento de Elementos do DOM (Sincronizado com o seu HTML)
+const drawButton = document.querySelector(".sortear-button");
+const minInput = document.querySelector(".input-min");
+const maxInput = document.querySelector(".input-max");
+const titleElement = document.querySelector("h2");
 
-// 1. Math.PI: Retorna a constante do Pi (aproximadamente 3.14159...)
-const piValue = Math.PI;
-console.log(`π Value (Pi): ${piValue}`);
+// 🧮 2. Função Algorítmica do Sorteio (Equação de Intervalo Fechado)
+function generateRandomNumber() {
+    console.log("Processando o sorteio...");
 
-// 2. Math.pow(base, expoente): Potenciação (Ex: 2 elevado ao cubo / 2³)
-const powerResult = Math.pow(2, 3);
-console.log(`Power (2³): ${powerResult}`); // Outputs: 8
+    const min = Math.ceil(parseInt(minInput.value));
+    const max = Math.floor(parseInt(maxInput.value));
 
-// 3. Math.sqrt(número): Raiz Quadrada (Square Root. Ex: Raiz de 25)
-const squareRootResult = Math.sqrt(25);
-console.log(`Square Root (√25): ${squareRootResult}`); // Outputs: 5
+    // Validações de Segurança contra inputs vazios
+    if (isNaN(min) || isNaN(max)) {
+        alert("Por favor, preencha os dois campos numéricos.");
+        return;
+    }
 
+    if (min >= max) {
+        alert("O número mínimo deve ser menor que o número máximo!");
+        return;
+    }
 
-// =========================================================================
-// 🧮 PARTE 2: Modificadores de Arredondamento (Revisão Técnica)
-// =========================================================================
-const testValue = 4.3;
+    // Fórmula Matemática para sortear estritamente entre o Min e o Max
+    const drawnResult = Math.floor(Math.random() * (max - min + 1)) + min;
 
-console.log(`\nRounding operations for: ${testValue}`);
-console.log("Ceil (Arredonda para Cima):", Math.ceil(testValue));   // Outputs: 5
-console.log("Floor (Arredonda para Baixo):", Math.floor(testValue)); // Outputs: 4
+    console.log(`🏆 Sucesso! Número sorteado entre [${min} e ${max}]: ${drawnResult}`);
 
+    // Injeta o resultado dinamicamente alterando o título h2
+    titleElement.innerHTML = `🏆 Número Sorteado: <span style="color: #AEC346; font-weight: bold;">${drawnResult}</span>`;
+}
 
-// =========================================================================
-// 🎲 PARTE 3: O Motor Random (Gerador de Inteiros Aleatórios)
-// =========================================================================
-// Math.random() cria uma fração entre 0 e 1.
-// Multiplicamos pelo limite e arredondamos para baixo para ter números limpos.
-const randomInteger = Math.floor(Math.random() * 100) + 1; // Entre 1 e 100
+// ⚡ 3. Ativação do Ouvinte de Eventos (Event Listener)
+drawButton.addEventListener("click", generateRandomNumber);
 
-console.log(`\n🎲 Generated Random Integer (1-100): ${randomInteger}`);
-
-/* 
-   RECRUITER NOTE: 
-   Combining Math.PI, Math.pow, and Math.sqrt showcases algorithmic math foundations.
-   Using Math.floor alongside Math.random avoids precision parsing bugs, 
-   instantly returning strict integer values on modern V8 engines.
-*/
 
