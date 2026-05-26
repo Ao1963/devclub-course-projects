@@ -89,24 +89,79 @@ console.log("Menor ou Igual (45 <= 30):", z <= x);     // Outputs: false (45 é 
 // =========================================================================
 console.log("\n--- LOGICAL OPERATORS TESTING ---");
 
-const hasAge = true;
-const hasMoney = false;
-const hasCard = true;
+// 1. Cenário AND (&&) - A Pessoa Exigente
+const temDinheiro = true;
+const temTempo = true;
+const temDisposicao = false;
 
-// 1. Operador E (&&) -> Exige que AMBOS sejam verdadeiros
-console.log("Operador AND (true && false):", hasAge && hasMoney); // Outputs: false (Falta o dinheiro)
+console.log("&& (Exigente): Tem dinheiro E tempo?", temDinheiro && temTempo); // true
+console.log("&& (Exigente): Tem dinheiro E disposição?", temDinheiro && temDisposicao); // false
 
-// 2. Operador OU (||) -> Basta que UM seja verdadeiro
-console.log("Operador OR (false || true):", hasMoney || hasCard); // Outputs: true (Tem o cartão!)
+// 2. Cenário OR (||) - O "Tanto Faz"
+const temPix = false;
+const temCartao = true;
+console.log("|| (Tanto faz): Aceita Pix OU Cartão?", temPix || temCartao); // true
 
-// 3. Operador NÃO (!) -> Inverte o valor lógico
-console.log("Operador NOT (!true):", !hasAge);                    // Outputs: false (Inverteu true para false)
+// 3. Cenário NOT (!) - O Inversor do Contra
+const usuarioLogado = true;
+console.log("! (Negação): Invertendo o estado logado:", !usuarioLogado); // false
+
+// 4. Cenário Avançado Combinado (&& e || juntos) - Regra de Frete Grátis
+const ehClientePremium = true;
+const valorCompra = 120;
+const temCupomFrete = false;
+
+// Regra: (Premium E compra > 100) OU se tiver o cupom direto
+const ganhouFreteGratis = (ehClientePremium && valorCompra > 100) || temCupomFrete;
+
+console.log("\n--- REGRA DE NEGÓCIO COMBINADA ---");
+console.log("Ganhou Frete Grátis?", ganhouFreteGratis); // Outputs: true (Caiu na primeira regra)
 
 /* 
    RECRUITER NOTE: 
    Logical short-circuiting (using && and ||) optimizes resource handling.
    If the first statement of an AND block evaluates to false, 
    modern engines immediately drop execution to save clock memory cycles.
+*/
+
+// =========================================================================
+// 🎯 TOPIC 05: Typeof Operator (Inspeção de Tipos Primitivos)
+// =========================================================================
+console.log("\n--- TYPEOF OPERATOR TESTING ---");
+
+const textVar = "Anselmo";
+const numVar = 2026;
+const boolVar = true;
+const objectVar = { name: "MacBook Air" };
+
+console.log("Tipo de textVar:", typeof textVar);     // Outputs: string
+console.log("Tipo de numVar:", typeof numVar);       // Outputs: number
+console.log("Tipo de boolVar:", typeof boolVar);     // Outputs: boolean
+console.log("Tipo de objectVar:", typeof objectVar); // Outputs: object
+
+// =========================================================================
+// 🧹 TOPIC 06: Delete Operator (Gerenciamento e Limpeza de Objetos)
+// =========================================================================
+console.log("\n--- DELETE OPERATOR TESTING ---");
+
+const employee = {
+    name: "Anselmo",
+    role: "Software Engineer",
+    salary: 10000
+};
+
+console.log("Objeto antes do delete:", employee);
+
+// Deletando a propriedade salary para expurgar dados sensíveis da memória
+delete employee.salary;
+
+console.log("Objeto após o delete:", employee); // A chave 'salary' sumiu!
+
+/* 
+   FINAL RECRUITER NOTE: 
+   Using typeof architecture patterns ensures runtime data contract safety.
+   The delete operator mutates object structures directly; in enterprise scale, 
+   prefer rest parameter destructuring over delete to preserve object immutability optimization.
 */
 
 
