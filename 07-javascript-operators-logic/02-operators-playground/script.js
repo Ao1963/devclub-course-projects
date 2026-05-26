@@ -165,3 +165,4 @@ console.log("Objeto após o delete:", employee); // A chave 'salary' sumiu!
 */
 
 
+
