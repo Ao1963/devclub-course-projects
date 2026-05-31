@@ -239,6 +239,43 @@ currentSalary < 3000
    For complex multi-path logic trees, always enforce standard 'If / Else' or 'Switch Case'.
 */
 
+// =========================================================================
+// 🎛️ TOPIC 12: Switch Case (Controlador de Fluxo para Valores Fixos)
+// =========================================================================
+console.log("\n--- SWITCH CASE TESTING ---");
 
+const statusDoPedido = "pago";
 
+switch (statusDoPedido) {
+    case "pendente":
+        console.log("⏳ Pedido recebido. Aguardando confirmação de pagamento.");
+        break;
+    case "pago":
+        // Como statusDoPedido é "pago", o JS executa aqui e para no break
+        console.log("💳 Pagamento confirmado! Preparando envio do produto.");
+        break;
+    case "enviado":
+        console.log("🚚 Produto despachado. Acompanhe pelo código de rastreamento.");
+        break;
+    default:
+        // Caso o status seja qualquer outra coisa que não mapeamos acima
+        console.log("❓ Status do pedido desconhecido ou cancelado.");
+        break;
+}
 
+/* 
+   RECRUITER NOTE: 
+   The Switch Case structure performs loose equality evaluations internally.
+   Always include the 'break' statement to prevent automated execution bleeding (fall-through).
+   Enforce the 'default' block as a defensive programming strategy to handle edge cases safely.
+*/
+
+// =========================================================================
+// ⏱️ TOPIC 13: setTimeout & setInterval (Controladores de Tempo)
+// =========================================================================
+console.log("\n--- TIMERS TESTING ---");
+
+// Executa o bloco apenas UMA VEZ após 3 segundos (3000ms)
+setTimeout(() => {
+    alert("🚀 Parabéns por concluir o playground de operadores! Continue praticando para dominar a lógica de programação em JavaScript!");
+}, 3000);
