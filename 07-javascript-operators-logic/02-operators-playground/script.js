@@ -157,12 +157,88 @@ delete employee.salary;
 
 console.log("Objeto após o delete:", employee); // A chave 'salary' sumiu!
 
+// =========================================================================
+// 🚦 TOPIC 07: Conditional Control - If / Else Statement (Base Binária)
+// =========================================================================
+console.log("\n--- IF / ELSE STATEMENT TESTING ---");
+
+const notaDoEstudante = 85;
+const mediaParaAprovacao = 70;
+
+if (notaDoEstudante >= mediaParaAprovacao) {
+    console.log(`🏆 Status: Aprovado com a nota ${notaDoEstudante}!`);
+} else {
+    console.log(`❌ Status: Reprovado. Necessita de recuperação.`);
+}
+
+// =========================================================================
+// 🌡️ TOPIC 08: Conditional Control - Else If (O Algoritmo de Temperatura)
+// =========================================================================
+console.log("\n--- MEDICAL TEMPERATURE EVALUATION ---");
+
+// Mude para 30, 36, 39 ou 41 para testar os múltiplos caminhos!
+const temperature = 41; 
+
+if (temperature === 36) {
+    console.log("🌡️ Status: Você está saudável.");
+} else if (temperature > 36 && temperature <= 40) {
+    // Sintaxe corrigida: Todo o bloco unificado por parênteses
+    console.log("🌡️ Status: Você está com febre.");
+} else if (temperature > 40) {
+    // Lógica corrigida: Evita que febre alta caia por erro no bloco de hipotermia
+    console.log("🚨 Status de Emergência: Você está com MUITA febre!");
+} else {
+    console.log("❄️ Status: Você está com hipotermia.");
+}
+
 /* 
-   FINAL RECRUITER NOTE: 
-   Using typeof architecture patterns ensures runtime data contract safety.
-   The delete operator mutates object structures directly; in enterprise scale, 
-   prefer rest parameter destructuring over delete to preserve object immutability optimization.
+   RECRUITER NOTE: 
+   The 'Else If' chain evaluates sequentially and shorts-circuits upon the first match.
+   Never leave high-risk thresholds inside a loose fallback 'else' block. 
+   Always declare explicit conditional gates before applying structural fallback states.
 */
+
+// =========================================================================
+// 🎯 TOPIC 09: Ternary Operator (O Atalho de Uma Linha para If / Else)
+// =========================================================================
+console.log("\n--- TERNARY OPERATOR TESTING ---");
+
+const salary = 5000;
+
+// O Ternário Puro: Excelente para substituir um If / Else simples de forma enxuta
+salary < 3000 ? console.log("💼 Cargo: O colaborador é Junior.") : console.log("💼 Cargo: Ele é Senior.");
+
+// =========================================================================
+// ⚡ TOPIC 10: Short-Circuit AND (Substituindo o IF Sem Else)
+// =========================================================================
+console.log("\n--- SHORT-CIRCUIT EVALUATION (&&) ---");
+
+const isJunior = true;
+
+// Se for Junior, executa o que está após o &&. Se for false, o JS ignora em silêncio.
+isJunior && console.log("🚀 Notificação: Treinamento onboarding liberado para Junior!");
+
+// =========================================================================
+// 🔀 TOPIC 11: Chained Ternary (Exemplo Didático de Else If com Ternário)
+// =========================================================================
+console.log("\n--- CHAINED TERNARY TESTING ---");
+
+const currentSalary = 2000;
+
+// Embora permitido pela linguagem, use com moderação para não poluir a leitura!
+currentSalary < 3000 
+    ? console.log("📊 Nível: Junior") 
+    : currentSalary >= 3000 && currentSalary < 10000 
+        ? console.log("📊 Nível: Senior") 
+        : console.log("📊 Nível: Diretor");
+
+/* 
+   RECRUITER NOTE: 
+   The ternary operator (? :) should strictly be used for simple, single-line binary assignments.
+   Chaining multiple ternários together ruins readability and code maintainability.
+   For complex multi-path logic trees, always enforce standard 'If / Else' or 'Switch Case'.
+*/
+
 
 
 
