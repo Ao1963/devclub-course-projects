@@ -271,11 +271,33 @@ switch (statusDoPedido) {
 */
 
 // =========================================================================
-// ⏱️ TOPIC 13: setTimeout & setInterval (Controladores de Tempo)
+// ⏱️ TOPIC 13: setTimeout & setInterval (Temporizadores Assíncronos)
 // =========================================================================
 console.log("\n--- TIMERS TESTING ---");
 
-// Executa o bloco apenas UMA VEZ após 3 segundos (3000ms)
+// 1. setTimeout: Executa apenas UMA VEZ após 3 segundos (3000ms)
 setTimeout(() => {
-    alert("🚀 Parabéns por concluir o playground de operadores! Continue praticando para dominar a lógica de programação em JavaScript!");
+    // UNIFICADO: Trocado para console.log para poder rodar na Opção 2 sem quebrar
+    console.log("🚀 [setTimeout] Parabéns por concluir o playground de operadores!");
 }, 3000);
+
+// 2. setInterval: Executa INFINITAS VEZES a cada 2 segundos (2000ms)
+let contador = 1;
+
+const meuCronometro = setInterval(() => {
+    console.log(`⏳ [setInterval] Loop executado ${contador} vez(es) no seu Mac...`);
+    contador++;
+
+    // REGRA DE SEGURANÇA: Para o loop infinito após 3 execuções para não travar a máquina
+    if (contador > 3) {
+        clearInterval(meuCronometro); // Para o setInterval imediatamente
+        console.log("🛑 [setInterval] Loop interrompido com segurança via clearInterval!");
+    }
+}, 2000);
+
+/* 
+   RECRUITER NOTE: 
+   Always store setInterval references inside a constant/variable wrapper.
+   This lifecycle pattern allows using 'clearInterval()' to prevent memory leaks 
+   and runaway background threads inside modern JavaScript runtime environments.
+*/
