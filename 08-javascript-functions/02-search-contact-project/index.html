@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Contact Engine</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+
+    <main class="search-container">
+        <h1 class="title">Contact Directory</h1>
+        <p class="subtitle">Search and locate engineers instantly</p>
+
+        <div class="search-box">
+            <!-- Input minimalista -->
+            <input type="text" id="search-input" placeholder="Type a name to search...">
+            <button id="search-button">Search</button>
+        </div>
+
+        <!-- Seção onde o loop do JS vai injetar o card do contato encontrado -->
+        <section id="result-section" class="result-hidden">
+            <div class="contact-card">
+                <div class="avatar">👤</div>
+                <div class="contact-info">
+                    <h3 id="contact-name">Name</h3>
+                    <p id="contact-role">Role</p>
+                    <p id="contact-email">Email</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
