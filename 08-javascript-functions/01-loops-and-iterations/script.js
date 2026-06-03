@@ -74,3 +74,82 @@ console.log(`\n📊 Diagnóstico de Escala: O array possui o tamanho real de ${u
    Always verify correct property spelling ('length') to prevent silent loop skips 
    where evaluation predicates instantly drop execution to false during runtime initialization.
 */
+
+// =========================================================================
+// 🔄 TOPIC 04: The Modern FOR OF Loop (Iteração Simplificada de Elementos)
+// =========================================================================
+console.log("\n--- STARTING FOR OF EVALUATIONS ---");
+
+// 1. Iterando sobre uma String (Letra por Letra)
+const myName = "Rodolfo";
+console.log(`\n🔤 Scanning string variables for: ${myName}`);
+for (const letter of myName) {
+    console.log(letter);
+}
+
+// 2. Iterando sobre um Array Primitivo
+const arrayUsers = ["João", "Maria", "Letícia"];
+console.log("\n👥 Scanning user matrices:");
+for (const name of arrayUsers) {
+    console.log(name);
+}
+
+// 3. O Motor de Busca Otimizado (Refatorado e Livre de Bugs)
+console.log("\n🔍 Running Explicit Directory Match Engine:");
+
+const contacts = [
+    { name: "João", number: "1199999-9991" },
+    { name: "Maria", number: "1199999-9992" },
+    { name: "Letícia", number: "1199999-9993" }
+];
+
+const simulatedInputValue = "Maria"; 
+let contactFoundFlag = false;
+
+for (const contact of contacts) {
+    if (simulatedInputValue.toLowerCase() === contact.name.toLowerCase()) {
+        console.log(`🏆 Contato Encontrado -> Nome: ${contact.name} | Tel: ${contact.number}`);
+        contactFoundFlag = true;
+        break; // LÓGICA DE PRODUÇÃO ENXUTA: Economiza processamento!
+    }
+}
+
+if (!contactFoundFlag) {
+    console.log("❌ Contato não encontrado, tente outra vez.");
+}
+
+/* 
+   RECRUITER NOTE: 
+   The 'for...of' statement creates a loop iterating over iterable objects.
+   It enforces maximum readability by eliminating internal counter overhead indexers.
+   Always pair array searches with early 'break' routines to drop memory thread cycles.
+*/
+
+// =========================================================================
+// 🔄 TOPIC 05: The FOR IN Loop (Varredura de Propriedades de Objetos)
+// =========================================================================
+console.log("\n--- STARTING FOR IN EVALUATIONS ---");
+
+const userProfile = { 
+    name: "Anselmo", 
+    age: 62, 
+    street: "Rua dos Laços" 
+};
+
+console.log("🧩 Forma 1: Acesso direto por ponto (userProfile.name):", userProfile.name);
+console.log("🧩 Forma 2: Acesso estático por colchetes (userProfile['name']):", userProfile['name']);
+
+console.log("\n🔄 Iniciando a varredura dinâmica das chaves:");
+
+// O loop extrai dinamicamente as chaves: "name", "age" e "street"
+for (const key in userProfile) {
+    // SINAL VERDE: Usando a interpolação por crases conforme sua última evolução anotada!
+    console.log(`🔑 Propriedade (Chave): ${key} | 🚪 Valor Acessado: ${userProfile[key]}`);
+}
+
+/* 
+   RECRUITER NOTE: 
+   The 'for...in' loop iterates over all enumerable string properties of an object.
+   Do not use 'for...in' to iterate over Arrays where index order is mathematically vital.
+   Combining dynamic object keys via bracket notation (object[key]) avoids dynamic evaluation hacks.
+*/
