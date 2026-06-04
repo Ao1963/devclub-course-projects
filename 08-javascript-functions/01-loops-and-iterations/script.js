@@ -153,3 +153,75 @@ for (const key in userProfile) {
    Do not use 'for...in' to iterate over Arrays where index order is mathematically vital.
    Combining dynamic object keys via bracket notation (object[key]) avoids dynamic evaluation hacks.
 */
+
+// =========================================================================
+// 🔄 TOPIC 06: WHILE & DO WHILE (Laços de Verificação Condicional)
+// =========================================================================
+console.log("\n--- STARTING WHILE EVALUATIONS ---");
+
+let counterWhile = 0;
+// O While checa ANTES de rodar
+while (counterWhile < 5) {
+    counterWhile++;
+    console.log(`⏳ [While] Contador atualizado para: ${counterWhile}`);
+}
+
+console.log("\n--- STARTING DO WHILE EVALUATIONS ---");
+
+let counterDo = 0;
+// O Do While executa a primeira volta OBRIGATORIAMENTE antes de perguntar
+do {
+    counterDo++;
+    console.log(`⏳ [Do While] Executou primeiro e somou: ${counterDo}`);
+} while (counterDo < 5);
+
+
+// =========================================================================
+// 🎯 TOPIC 07: O DESAFIO DOS TIMERS (Buscador com While e Do While)
+// =========================================================================
+console.log("\n🔍 Running Directory Search via Conditional Loops:");
+
+const contactDatabase = [
+    { name: "Maria", role: "Frontend Engineer" },
+    { name: "Aline", role: "UI/UX Designer" },
+    { name: "João", role: "Backend Developer" },
+    { name: "Pedro", role: "DevOps Specialist" }
+];
+
+const targetSearch = "Aline";
+
+// --- PARTE A: Resolvendo o Desafio com WHILE ---
+let indexWhile = 0;
+let foundWithWhile = false;
+
+while (indexWhile < contactDatabase.length) {
+    if (contactDatabase[indexWhile].name.toLowerCase() === targetSearch.toLowerCase()) {
+        console.log(`🏆 [While Engine] ${targetSearch} localizada no índice [${indexWhile}] -> Cargo: ${contactDatabase[indexWhile].role}`);
+        foundWithWhile = true;
+        break; // PRODUÇÃO ENXUTA: Para a varredura na hora para economizar memória!
+    }
+    indexWhile++;
+}
+
+// --- PARTE B: Resolvendo o Desafio com DO WHILE ---
+let indexDo = 0;
+let foundWithDo = false;
+
+do {
+    // Validação de segurança para não ler índices inexistentes caso a lista esteja vazia
+    if (contactDatabase.length === 0) break;
+
+    if (contactDatabase[indexDo].name.toLowerCase() === targetSearch.toLowerCase()) {
+        console.log(`🏆 [Do While Engine] ${targetSearch} localizada no índice [${indexDo}] -> Cargo: ${contactDatabase[indexDo].role}`);
+        foundWithDo = true;
+        break; // Interrompe o loop com segurança
+    }
+    indexDo++;
+} while (indexDo < contactDatabase.length);
+
+/* 
+   RECRUITER NOTE: 
+   The 'while' statement tests entry predicates before block compilation threads execute.
+   The 'do...while' statement guarantees a single atomic computation loop execution before validation metrics evaluate.
+   Always pair manual runtime increment operations tightly inside blocks to completely avoid CPU thread freezing bugs.
+*/
