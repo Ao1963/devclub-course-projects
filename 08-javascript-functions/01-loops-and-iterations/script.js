@@ -225,3 +225,75 @@ do {
    The 'do...while' statement guarantees a single atomic computation loop execution before validation metrics evaluate.
    Always pair manual runtime increment operations tightly inside blocks to completely avoid CPU thread freezing bugs.
 */
+
+// =========================================================================
+// 🔄 TOPIC 08: The forEach Method Framework (Iteração Funcional de Arrays)
+// =========================================================================
+console.log("\n--- STARTING FOREACH EVALUATIONS ---");
+
+// Nome isolado para eliminar conflito de memória
+const usersForEach = [
+    { name: 'Anselmo', age: 62, contact: '(33) 990013534' },
+    { name: 'Paula', age: 42, contact: '(33) 988975334' },
+    { name: 'Arthur', age: 34, contact: '(33) 997684576' },
+    { name: 'Alice', age: 40, contact: '(35) 991378788' },
+    { name: 'Edson', age: 55, contact: '(53) 998747999' }
+];
+
+// Exemplo 1: Sintaxe Enxuta com Arrow Function
+console.log("\n📊 Exemplo 1: Objetos puros passados no laço:");
+usersForEach.forEach(item => console.log(item));
+
+// Exemplo 2 e 3: Element, Index e Array Completo
+console.log("\n📊 Exemplo 2 e 3: Inspeção de Posições e Matriz:");
+usersForEach.forEach(function (element, i) {
+    console.log(`Posição (Index): ${i} | Nome: ${element.name}`);
+});
+
+// Exemplo 4 e 5: Acesso Seletivo de Propriedades
+console.log("\n📊 Exemplo 4 e 5: Filtragem de Propriedades:");
+usersForEach.forEach(element => {
+    console.log(`Nome: ${element.name}, Idade: ${element.age}, Contato: ${element.contact}`);
+});
+
+// Exemplo 6: Lista Numerada com Índice Ajustado (index + 1)
+console.log("\n📊 Exemplo 6: Lista formatada com início em 1:");
+usersForEach.forEach((element, index) => {
+    console.log(`${index + 1}) Nome: ${element.name} | Contato: ${element.contact}`);
+});
+
+
+// =========================================================================
+// 🎯 TOPIC 09: O DESAFIO FOREACH (Buscador com Variável de Controle)
+// =========================================================================
+console.log("\n🔍 Running Directory Search via forEach Engine:");
+
+const simulatedInputText = "Alice";
+
+// CORRIGIDO: Nomes alterados de forma exclusiva para neutralizar o conflito na linha 272
+let forEachFoundFlag = false;
+let forEachContactData = null;
+
+usersForEach.forEach(contact => {
+    if (simulatedInputText.toLowerCase() === contact.name.toLowerCase()) {
+        forEachFoundFlag = true;
+        forEachContactData = contact;
+    }
+});
+
+// Lógica de Renderização Defensiva: Avalia as novas variáveis exclusivas
+if (forEachFoundFlag) {
+    console.log(`🏆 Contato encontrado -> Nome: ${forEachContactData.name} Tel: ${forEachContactData.contact}`);
+} else {
+    console.log("❌ Contato não encontrado, tente outra vez.");
+}
+
+/* 
+   FINAL RECRUITER NOTE: 
+   The 'forEach()' abstraction encapsulates block scopes cleanly but eliminates early loop termination options.
+   Using a control flag ('forEachFoundFlag') mitigates intermediate rendering bugs where the 'else' block 
+   would overwrite success messages during ongoing array iterations.
+   Explicit variable renaming prevents dynamic redeclaration crashes within global compilation scopes.
+*/
+
+
