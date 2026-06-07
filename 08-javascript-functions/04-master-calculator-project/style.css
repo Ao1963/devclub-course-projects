@@ -1,0 +1,139 @@
+@import url('https://googleapis.com');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0F172A;
+    /* Slate escuro premium internacional */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.calculator-card {
+    width: 100%;
+    max-width: 360px;
+    background: #1E293B;
+    padding: 24px;
+    border-radius: 24px;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* CORREÇÃO: Estilos do cabeçalho injetados de forma explícita */
+.calculator-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-left: 4px;
+}
+
+.brand-logo {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.brand-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.display-container {
+    background: #0F172A;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: right;
+    margin-bottom: 24px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.display-history {
+    font-size: 14px;
+    color: #64748B;
+    min-height: 20px;
+    margin-bottom: 4px;
+}
+
+.display-main {
+    font-size: 36px;
+    font-weight: 700;
+    color: #FFFFFF;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 17.5fr);
+    gap: 12px;
+}
+
+button {
+    height: 64px;
+    border: none;
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    color: #FFFFFF;
+}
+
+.btn-num {
+    background: #334155;
+}
+
+.btn-num:hover {
+    background: #475569;
+}
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+.btn-advanced {
+    background: #475569;
+    color: #E2E8F0;
+}
+
+.btn-advanced:hover {
+    background: #64748B;
+}
+
+.btn-operator {
+    background: #475569;
+    color: #AEC346;
+    font-weight: 700;
+}
+
+.btn-operator:hover {
+    background: #64748B;
+}
+
+.btn-equal {
+    grid-column: span 1;
+    background: #AEC346;
+    color: #FFFFFF;
+    font-weight: 700;
+    box-shadow: 0px 8px 20px rgba(174, 195, 70, 0.25);
+}
+
+.btn-equal:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
