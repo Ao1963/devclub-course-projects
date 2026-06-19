@@ -141,6 +141,84 @@ console.log(`💳 Valor final com desconto de 15%: R$ ${finalInvoice.toFixed(2)}
    prevents index variable mutations from polluting global memory contexts.
 */
 
+// =========================================================================
+// ⚡ TOPIC 07: Arrow Functions Architecture & Lexical Scope
+// =========================================================================
+console.log("\n--- ARROW FUNCTIONS ARCHITECTURE ---");
+
+// 1. Anatomia Padrão (Substituição da palavra-chave 'function' pelo operador '=>')
+const standardArrow = (param1, param2) => {
+    const calculation = param1 + param2;
+    return calculation;
+};
+console.log(`Sintaxe Padrão Arrow: ${standardArrow(10, 5)}`); // Outputs: 15
+
+// 2. Compressão Sintática: Parâmetro Único (Dispensa parênteses se for apenas 1 parâmetro)
+const singleParamArrow = userName => `Boas-vindas ao ecossistema moderno, ${userName}!`;
+console.log(singleParamArrow("Anselmo")); 
+
+// 3. Compressão Sintática: Retorno Implícito (Sem chaves, sem a palavra 'return')
+// Ideal para operações matemáticas puras e inline de alta velocidade
+const quickMultiply = (factorA, factorB) => factorA * factorB;
+console.log(`Retorno Implícito (Multiplicação): ${quickMultiply(8, 5)}`); // Outputs: 40
+
+// 4. Engenharia Avançada: Retorno Implícito de Objetos Literais
+// REGRA DE OURO: Objetos precisam ser envolvidos por parênteses () para o motor do V8 não confundir com chaves de bloco {}
+const buildUserObject = (id, role) => ({ userId: id, userRole: role });
+console.log("Objeto Gerado via Arrow:", buildUserObject(712, "Senior Software Engineer"));
+
+// 5. Escopo Léxico do 'this' (O Diferencial de Mercado)
+// Arrow functions não possuem seu próprio 'this'. Elas herdam o contexto do local onde foram criadas.
+const lexicalContextTest = {
+    developerName: "Anselmo",
+    executeTraditional: function() {
+        // Funções tradicionais criam seu próprio contexto dinâmico
+        return `Contexto Tradicional vê o nome: ${this.developerName}`;
+    },
+    executeArrow: () => {
+        // Arrow function herda o escopo global/externo (neste caso, o escopo do arquivo/módulo Node, onde 'this.developerName' é undefined)
+        return `Contexto Arrow vê o nome: ${this.developerName}`;
+    }
+};
+console.log(lexicalContextTest.executeTraditional()); // Outputs: Contexto Tradicional vê o nome: Anselmo
+console.log(lexicalContextTest.executeArrow());       // Outputs: Contexto Arrow vê o nome: undefined
+
+/* 
+   RECRUITER NOTE: 
+   Arrow functions deliver structural syntax compression via implicit return lifecycles, 
+   significantly reducing boilerplate overhead in functional pipes.
+   By retaining the lexical context of the 'this' keyword rather than binding a dynamic execution context, 
+   they inherently resolve architectural memory leakage and binding bugs found in legacy anonymous expressions.
+   Enclosing implicit object literal returns within parenthesis '()' is mandatory to bypass JavaScript syntax ambiguity.
+*/
+
+// =========================================================================
+// 🔄 TOPIC 08: Anonymous Functions & Callback Lifecycles
+// =========================================================================
+console.log("\n--- ANONYMOUS FUNCTIONS & CALLBACKS ---");
+
+const pipelineArray = [10, 20, 30];
+
+// 1. Função Anônima Moderna (Arrow) como Callback de Engenharia de Array
+pipelineArray.forEach(element => {
+    console.log(`Pipeline (Arrow Anônima) -> Item: ${element}`);
+});
+
+// 2. Função Anônima Tradicional (Legacy Syntax) mantendo a compatibilidade de escopo
+pipelineArray.forEach(function (element) {
+    console.log(`Pipeline (Tradicional Anônima) -> Item: ${element}`); 
+});
+
+/* 
+   RECRUITER NOTE: 
+   Anonymous functions function as volatile, single-use callbacks within array processing 
+   pipelines and asynchronous event loops (e.g., event listeners or timers).
+   Because they are clean of global identifiers, they prevent memory context pollution 
+   and are efficiently swept by the JavaScript engine's Garbage Collector post-execution.
+*/
+
+
+
 
 
 
