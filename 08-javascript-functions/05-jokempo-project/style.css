@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');/* Exemplo de uso para a Roboto em títulos específicos */
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Exemplos de pesos que importamos (400, 600 e 800) */
+.font-regular { font-weight: 400; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 800; }
+
+:root {
+  --color-bg-start: #1f3756;
+  --color-bg-end: #111539;
+  --color-text-dark: #2a46c0;
+  --color-text-light: #ffffff;
+  --color-border: #606e85;
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  
+  --color-rock: linear-gradient(#ec9e0e, #eca10c);
+  --color-paper: linear-gradient(#4865f4, #5671f5);
+  --color-scissors: linear-gradient(#ec9e0e, #eca10c);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: radial-gradient(circle at top, var(--color-bg-start), var(--color-bg-end));
+  color: var(--color-text-light);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 700px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.game-header {
+  border: 3px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-header__title {
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  line-height: 0.85;
+  font-weight: 800;
+}
+
+.score-board {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  display: flex;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.score-board__label {
+  color: var(--color-text-dark);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.score-board__value {
+  display: block;
+  color: #3b4363;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.game-arena {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+  min-height: 250px;
+}
+
+.game-arena:not(.is-playing) {
+  display: none;
+}
+
+.game-arena.is-playing {
+  display: grid;
+}
+
+.game-arena.has-result {
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.game-arena__side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.game-arena__label {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.game-controls.is-hidden {
+  display: none;
+}
+
+.token-btn {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  font-size: 3rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: inset 0 -6px 0 rgba(0,0,0,0.15);
+}
+
+.token-btn:hover {
+  transform: scale(1.05);
+}
+
+.token-btn--paper { border: 12px solid #4865f4; }
+.token-btn--scissors { border: 12px solid #ec9e0e; }
+.token-btn--rock { border: 12px solid #dc2e4e; }
+
+.game-arena__token {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem;
+}
+
+.game-arena__result {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.game-arena__result.is-hidden {
+  display: none;
+}
+
+.game-arena__status {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.btn {
+  font-family: inherit;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn--secondary {
+  background: #ffffff;
+  color: var(--color-bg-end);
+}
+
+.btn--secondary:hover {
+  color: #dc2e4e;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid var(--color-border);
+  color: var(--color-text-light);
+}
+
+.btn--outline:hover {
+  background: #ffffff;
+  color: var(--color-bg-end);
+}
+
+.game-footer {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .game-arena.has-result {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .game-arena__result {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    margin-top: 1.5rem;
+  }
+  .token-btn {
+    width: 100px;
+    height: 100px;
+    font-size: 2.2rem;
+  }
+}
