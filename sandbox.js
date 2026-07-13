@@ -371,3 +371,163 @@ const GAME_OPTIONS = {
   SCISSORS: "scissors",
 };
 */
+
+/* =========================================================================
+   🚀 AULA: MAP
+   ========================================================================= */
+/*
+MAP - FILTER - REDUCE
+
+São métodos nativos de arrays no JavaScript usados para manipular dados de forma declarativa e em conformidade com os princípios da programação funcional.
+
+Eles substituem os laços de repetição tradicionais (como for e while) por blocos de código mais limpos, focando em o que precisa ser feito, em vez de como o computador deve iterar sobre a estrutura.
+
+Map
+
+Significado: Mapeia (transforma) cada item de um array original e retorna um novo array contendo os resultados. O tamanho do novo array é sempre idêntico ao original.
+
+Objetivo: Converter, formatar ou extrair dados de uma lista sem alterar os dados originais.
+
+Vantagem: Evita mutações acidentais e reduz linhas de código, mantendo a estrutura original intacta.
+
+Uso indicado: Converter valores monetários (ex: de número para string formatada), extrair apenas propriedades específicas de uma lista de objetos, ou aplicar descontos a produtos em um carrinho.
+*/
+
+//O Map mapeia os elementos de um array, aplicando uma função a cada elemento e retornando um novo array com os resultados.
+//Map é uma função de array que cria um novo array com os resultados da chamada de uma função para cada elemento do array original. É muito útil para transformar dados.
+// MAP => Mapear o nosso array.
+//    - Cria um novo array, a partir do array original, percorrido
+//    - Cria um novo array, com a mesma quantidade de itens do array original
+//    - Aceita 3 parâmetros: o item do array atual, o index e o array completo
+
+//Exemplo1 (Windsurf):
+/*
+const numbers = [1, 2, 3, 4, 5];
+//
+const doubledNumbers = numbers.map((num) => num * 6);
+console.log(doubledNumbers); // [2, 4, 6, 8, 10]
+*/
+
+//Exemplo do Professor Rodolfo
+/*
+const number = [1, 2, 3, 4, 5, 6, 7]
+
+const double = number.map((item, index, arrayOriginal) => {
+  console.log(item + " -> item");
+  console.log(index + " -> index");
+  console.log(arrayOriginal + " -> arrayOriginal");
+
+  const newItem = item * 10;
+  return newItem;
+});
+
+console.log(number);
+console.log(double);
+*/
+
+/* =========================================================================
+   🚀 AULA: MAP pt.2
+   ========================================================================= */
+
+/*
+const list = [
+{ name: 'Anselmo', vip: true },
+{ name: 'Antônia', vip: false },
+{ name: 'João', vip: true },
+{ name: 'Maria', vip: false },
+{ name: 'Letícia', vip: true },
+{ name: 'Joana', vip: false },
+{ name: 'Pedro', vip: true },
+{ name: 'Lucas', vip: false },
+]
+
+*/
+
+/*
+//Exemplo1:
+// abaixo leia as informações.
+//Este foi criado dentro do map, 
+// mas poderia ser criado fora do map, 
+// então, dentro do map, apenas chamar a variável.
+
+const newLIst = list.map((user) => {
+  let braceletColor;
+
+  const newUser = {
+    name: user.name,
+    braceletColor: user.vip ? "Black" : "Green",
+  };
+*/
+
+/*
+//Exemplo2:
+// Vamos criar um if, fora do map, para definir a cor da pulseira, de outra forma, caso o usuário seja VIP ou não.
+
+const newLIst = list.map((user) => {
+  let braceletColor;
+
+  if (braceletColor === true) {
+    braceletColor = "Black";
+  } else {
+    braceletColor = "Green";
+  }
+  // No if acima, no true neste caso está redundante.
+
+  const newUser = {
+    name: user.name,
+    braceletColor: braceletColor,
+  };
+
+  return newUser;
+});
+*/
+
+//console.log(newLIst);
+
+//Exemplo3:
+// Vamos criar uma lista de alunos, como notas. Criar um if, fora do map, para definir se o aluno foi aprovado ou não, aonde a lista de notas dos alunos, varia de 0 a 10.
+// Mas quem tirar 7 ou mais, está aprovado, vamos criar um novo array, aonde vamos colocar o nome do aluno e se ele foi aprovado ou não.
+/*
+const students = [
+  { name: "Anselmo", grade: 8 },
+  { name: "Antônia", grade: 6 },
+  { name: "João", grade: 7 },
+  { name: "Maria", grade: 5 },
+  { name: "Letícia", grade: 9 },
+  { name: "Joana", grade: 4 },
+  { name: "Pedro", grade: 10 },
+  { name: "Lucas", grade: 3 },
+];
+*/
+
+
+/*
+const newStudentsList = students.map((student) => {
+  let status;
+
+  if (student.grade >= 7) {
+    status = "Aprovado";
+  } else {
+    status = "Reprovado";
+  }
+
+  const newStudent = {
+    name: student.name,
+    status: status,
+  };
+
+  return newStudent;
+});
+
+console.log(newStudentsList);
+*/
+
+//Agora, vou criar um novo array, com o ternário, para verificar se o aluno foi aprovado ou não.
+/*
+const newStudentsListTernary = students.map((student) => ({
+  name: student.name,
+  status: student.grade >= 7 ? "Aprovado" : "Reprovado",
+}));
+
+console.log(newStudentsListTernary);
+*/
