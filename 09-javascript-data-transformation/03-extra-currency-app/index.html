@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART CONVERTER - Extra Portfolio</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", -apple-system, sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+            color: #1e293b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 5px;
+            color: #0f172a;
+            margin-top: 10px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            font-size: 16px;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .badge {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .app-container {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+            max-width: 1000px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            flex: 1;
+            border: 1px solid #e2e8f0;
+            min-width: 0;
+        }
+
+        .rate-banner {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        label {
+            display: block;
+            margin-top: 14px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 15px;
+            background-color: #fff;
+            color: #1e293b;
+        }
+
+        input:disabled {
+            background-color: #f1f5f9;
+            color: #64748b;
+            cursor: not-allowed;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-top: 24px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #0369a1;
+        }
+
+        .output-area {
+            margin-top: 24px;
+            border-top: 2px dashed #e2e8f0;
+            padding-top: 20px;
+        }
+
+        .output-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .primary-val {
+            font-weight: bold;
+            color: #0f172a;
+        }
+
+        .secondary-val {
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .image-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            min-height: 380px;
+            position: relative;
+        }
+
+        .device-preview {
+            max-width: 100%;
+            max-height: 260px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: opacity 0.2s ease;
+            opacity: 1;
+        }
+
+        .image-caption {
+            margin-top: 20px;
+            font-size: 15px;
+            color: #1e293b;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .fallback-box {
+            font-size: 24px;
+            font-weight: 800;
+            color: #94a3b8;
+            border: 3px dashed #cbd5e1;
+            border-radius: 12px;
+            width: 80%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8fafc;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+
+            .image-card {
+                min-height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>SMART CONVERTER</h1>
+    <h2>Comprando Dispositivos Móveis</h2>
+    <div class="badge">Exercício Extra Independente • Portfólio de Aplicação Prática</div>
+
+    <div class="app-container">
+
+        <div class="card">
+            <div id="rate-display" class="rate-banner">Cotação Atualizada: 1 USD = R$ 5.11</div>
+
+            <label for="product-select">Selecione o Produto de Referência</label>
+            <select id="product-select" onchange="applyPresetPrice()">
+                <option value="5000">iPhone (Base: R$ 5.000,00)</option>
+                <option value="3500">Samsung (Base: R$ 3.500,00)</option>
+                <option value="1200">Xiaomi (Base: R$ 1.200,00)</option>
+                <option value="3000">OnePlus (Base: R$ 3.000,00)</option>
+                <option value="1500">Motorola (Base: R$ 1.500,00)</option>
+                <option value="custom">Inserir valor personalizado manualmente</option>
+            </select>
+
+            <label for="product-price">Preço Unitário (R$)</label>
+            <input type="number" id="product-price" value="5000" disabled oninput="executeCalculation()">
+
+            <label for="product-qty">Quantidade no Carrinho</label>
+            <input type="number" id="product-qty" value="1" min="1" oninput="executeCalculation()">
+
+            <button onclick="executeCalculation()">Conversão Monetária para Dolar Americano</button>
+
+            <div class="output-area" id="output-view">
+                <div class="output-row">
+                    <span>Subtotal em Reais:</span>
+                    <span id="res-brl" class="primary-val">R$ 5.000,00</span>
+                </div>
+                <div class="output-row">
+                    <span>Valor Convertido (USD):</span>
+                    <span id="res-usd" class="secondary-val">$978.47</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card image-card" id="img-container">
+            <img id="device-img" src="./assets/iphone.png" alt="Dispositivo" class="device-preview"
+                onerror="handleImageError()">
+            <div id="image-label" class="image-caption">iPhone</div>
+        </div>
+
+    </div>
+
+    <script>
+        let globalRate = 5.11;
+
+        const deviceCatalog = {
+            "5000": { name: "iPhone", img: "./assets/iphone.png" },
+            "3500": { name: "Samsung", img: "./assets/samsung.png" },
+            "1200": { name: "Xiaomi", img: "./assets/xiaomi.png" },
+            "3000": { name: "OnePlus", img: "./assets/oneplus.png" },
+            "1500": { name: "Motorola", img: "./assets/motorola.png" },
+            "custom": { name: "Personalizado", img: "./assets/custom.png" }
+        };
+
+        function applyPresetPrice() {
+            const select = document.getElementById("product-select");
+            const priceInput = document.getElementById("product-price");
+            const container = document.getElementById("img-container");
+
+            const selectedValue = select.value;
+
+            container.innerHTML = `<img id="device-img" src="" alt="Dispositivo" class="device-preview" onerror="handleImageError()"><div id="image-label" class="image-caption"></div>`;
+            const imgElement = document.getElementById("device-img");
+            const labelElement = document.getElementById("image-label");
+
+            if (selectedValue === "custom") {
+                priceInput.value = "";
+                priceInput.disabled = false;
+                priceInput.focus();
+
+                imgElement.src = deviceCatalog["custom"].img;
+                labelElement.innerText = deviceCatalog["custom"].name;
+            } else {
+                priceInput.value = selectedValue;
+                priceInput.disabled = true;
+
+                if (deviceCatalog[selectedValue]) {
+                    imgElement.style.opacity = "0.1";
+                    imgElement.src = deviceCatalog[selectedValue].img;
+                    labelElement.innerText = deviceCatalog[selectedValue].name;
+
+                    imgElement.onload = () => { imgElement.style.opacity = "1"; };
+                }
+            }
+            executeCalculation();
+        }
+
+        function handleImageError() {
+            const select = document.getElementById("product-select");
+            const container = document.getElementById("img-container");
+
+            let displayName = "SMARTPHONE";
+            if (deviceCatalog[select.value]) {
+                displayName = deviceCatalog[select.value].name;
+            }
+
+            container.innerHTML = `
+        <div class="fallback-box">${displayName}</div>
+        <div class="image-caption">${displayName}</div>
+      `;
+        }
+
+        function executeCalculation() {
+            const price = parseFloat(document.getElementById("product-price").value);
+            const qty = parseInt(document.getElementById("product-qty").value);
+
+            if (isNaN(price) || isNaN(qty) || qty < 1) {
+                document.getElementById("res-brl").innerText = "R$ 0,00";
+                document.getElementById("res-usd").innerText = "$0.00";
+                return;
+            }
+
+            const totalBRL = price * qty;
+            const totalUSD = totalBRL / globalRate;
+
+            const formatBRL = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
+            const formatUSD = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+
+            document.getElementById("res-brl").innerText = formatBRL.format(totalBRL);
+            document.getElementById("res-usd").innerText = formatUSD.format(totalUSD);
+        }
+
+        async function tryUpdateLiveRate() {
+            try {
+                const response = await fetch("https://awesomeapi.com.br");
+                if (response.ok) {
+                    const marketData = await response.json();
+                    globalRate = parseFloat(marketData.USDBRL.bid);
+                    document.getElementById("rate-display").innerText = `Cotação Comercial: 1 USD = R$ ${globalRate.toFixed(2)}`;
+                    executeCalculation();
+                }
+            } catch (err) {
+                console.log("Modo local seguro ativo.");
+            }
+        }
+
+        executeCalculation();
+        tryUpdateLiveRate();
+    </script>
+</body>
+
+</html>
